@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint Radar · Jev</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --surface-2: #eef0f4; --surface-3: #e4e7ee; --border: #dfe3ea;
+    --text: #1a1d24; --muted: #6b7280; --faint: #9aa1b2;
+    --accent: #4f46e5; --accent-soft: #e0e7ff; --accent-strong: #3730a3;
+    --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+    --bad: #dc2626; --bad-soft: #fee2e2; --info: #0284c7; --info-soft: #e0f2fe;
+    --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.1);
+    --radius: 12px;
+    --mono: ui-monospace, "Cascadia Code", SFMono-Regular, Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1117; --surface: #171a23; --surface-2: #1f2330; --surface-3: #2a2f3d; --border: #2a2f3d;
+      --text: #e6e8ef; --muted: #9aa1b2; --faint: #6b7280;
+      --accent: #818cf8; --accent-soft: #2b2f57; --accent-strong: #c7d2fe;
+      --ok: #4ade80; --ok-soft: #14352a; --warn: #fbbf24; --warn-soft: #3d2f0d;
+      --bad: #f87171; --bad-soft: #4a1d1d; --info: #7dd3fc; --info-soft: #1e3a5f;
+      --shadow: 0 1px 2px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  button, select, input { font: inherit; color: inherit; }
+  header { display: flex; align-items: center; gap: 14px; padding: 14px 24px;
+    border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 5; box-shadow: var(--shadow); }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  .brand h1 { margin: 0; font-size: 18px; letter-spacing: -.01em; }
+  .brand small { color: var(--muted); }
+  .brand .jev { color: var(--accent); font-weight: 700; }
+  select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; min-width: 200px; }
+  .btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; cursor: pointer; font-weight: 600; color: var(--accent); }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: transparent; color: #fff; box-shadow: 0 0 0 0 rgba(79,70,229,.5); }
+  .btn.primary:not(:disabled):hover { background: var(--accent-strong); }
+  .btn.primary.ready { animation: glow 1.8s ease-in-out infinite; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  @keyframes glow { 0%,100% { box-shadow: 0 0 0 0 rgba(79,70,229,.45);} 50% { box-shadow: 0 0 18px 4px rgba(79,70,229,.28);} }
+  .meters { margin-left: auto; display: flex; gap: 8px; align-items: stretch; }
+  .meter { text-align: right; background: var(--surface-2); border-radius: 8px; padding: 6px 12px; min-width: 96px; }
+  .meter b { display: block; font: 700 20px/1.1 var(--mono); color: var(--text); font-variant-numeric: tabular-nums; }
+  .meter span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+  .meter.time b { color: var(--accent); font-size: 24px; }
+  .meter.cost b { color: var(--ok); }
+
+  .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; padding: 16px 24px 0; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; box-shadow: var(--shadow); }
+  .kpi span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+  .kpi b { display: block; font: 700 24px/1.2 var(--mono); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .kpi small { color: var(--muted); }
+  .kpi.bad b { color: var(--bad); } .kpi.warn b { color: var(--warn); } .kpi.ok b { color: var(--ok); }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 16px; padding: 16px 24px 40px; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .panel h2 { margin: 0; padding: 12px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--surface); }
+  .chip { border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--surface-2); }
+  .chip.on { border-color: transparent; color: var(--accent); background: var(--accent-soft); }
+  .toolbar .sep { flex: 1; }
+
+  .tree { padding: 6px 0; overflow-x: auto; }
+  .row { display: grid; grid-template-columns: 26px 60px 150px minmax(220px,1fr) 150px 200px 72px; align-items: center; gap: 10px; padding: 6px 14px; border-bottom: 1px solid var(--surface-2); }
+  .row:hover { background: var(--surface-2); }
+  .row.l0 { background: var(--surface-2); font-weight: 600; }
+  .row.l1 { padding-left: 30px; }
+  .row.l2 { padding-left: 48px; cursor: pointer; }
+  .row.l2.sel { background: var(--accent-soft); outline: 1px solid var(--accent); }
+  .row.hidden { display: none; }
+  .row.dim { opacity: .5; }
+  .tog { color: var(--muted); cursor: pointer; width: 20px; text-align: center; user-select: none; }
+  .tog.open { transform: rotate(90deg); display: inline-block; }
+  .pill { font: 700 12px/1 var(--mono); border-radius: 999px; padding: 6px 0; text-align: center; background: var(--surface-2); color: var(--faint); transition: background .35s, color .35s, transform .35s; }
+  .pill.wait { animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: .5;} 50% { opacity: 1;} }
+  .pill.ok { background: var(--ok-soft); color: var(--ok); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill.bad { background: var(--bad-soft); color: var(--bad); }
+  .pill.pop { animation: pop .45s ease-out; }
+  @keyframes pop { 0% { transform: scale(.6); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+  .pill.agg { background: transparent; border: 1px dashed var(--border); }
+  .pill.agg.ok { border-color: var(--ok); } .pill.agg.warn { border-color: var(--warn);} .pill.agg.bad { border-color: var(--bad);}
+  .risk { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .risk i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--faint); }
+  .risk.on_track i { background: var(--ok);} .risk.owner_overloaded i { background: var(--warn);} .risk.blocked_external i { background: var(--bad);} .risk.dependency_open i { background: var(--warn);} .risk.not_started_large i { background: var(--bad);} .risk.scope_unclear i { background: var(--info);} .risk.done_not_closed i { background: var(--accent);}
+  .title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title .id { color: var(--muted); font: 12px var(--mono); margin-right: 6px; }
+  .title .type { color: var(--muted); font-size: 11px; margin-right: 6px; }
+  .who { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; }
+  .av { width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); display: inline-grid; place-items: center; font: 700 10px var(--mono); color: var(--accent); flex: none; }
+  .hrs { font: 12px var(--mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .hrs b { color: var(--text); }
+  .state { font-size: 11px; font-weight: 600; text-align: center; border-radius: 6px; padding: 3px 6px; background: var(--surface-2); color: var(--muted); }
+  .state.Active { background: var(--info-soft); color: var(--info); } .state.Closed { background: var(--ok-soft); color: var(--ok);} .state.Review { background: var(--accent-soft); color: var(--accent);} .state.Removed, .state.Dropped { text-decoration: line-through; }
+
+  .people { padding: 6px 14px 10px; }
+  .person { display: grid; grid-template-columns: 120px 1fr 64px; gap: 10px; align-items: center; padding: 6px 0; font-size: 12px; }
+  .person .bar { height: 10px; background: var(--surface-2); border-radius: 6px; overflow: hidden; position: relative; }
+  .person .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; background: var(--ok); transition: width .6s; }
+  .person .bar i.warn { background: var(--warn);} .person .bar i.bad { background: var(--bad);}
+  .person .bar em { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--text); left: 100%; }
+  .person .r { font: 12px var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+  .person .n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; padding: 10px 14px; font-size: 12px; }
+  .summary div { display: flex; justify-content: space-between; }
+  .summary b { font-family: var(--mono); }
+
+  .detail { padding: 12px 14px; font-size: 13px; }
+  .detail h3 { margin: 0 0 6px; font-size: 14px; }
+  .detail .meta { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .gauges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+  .gauge { background: var(--surface-2); border-radius: 10px; padding: 8px; text-align: center; }
+  .gauge b { display: block; font: 700 20px var(--mono); }
+  .gauge span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .dist { margin: 8px 0; }
+  .dist div { display: grid; grid-template-columns: 150px 1fr 44px; align-items: center; gap: 8px; font-size: 12px; padding: 2px 0; }
+  .dist .bar { height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+  .dist .bar i { display: block; height: 100%; background: var(--accent); transition: width .5s; }
+  .dist .top { color: var(--text); font-weight: 600; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; font-size: 12px; color: var(--muted); margin: 8px 0; }
+  .facts b { color: var(--text); font-family: var(--mono); font-weight: 600; }
+  details { margin-top: 10px; }
+  summary { cursor: pointer; color: var(--accent); font-size: 12px; font-weight: 600; }
+  pre { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font: 11px/1.4 var(--mono); max-height: 420px; overflow: auto; white-space: pre-wrap; word-break: break-word; }
+  .empty { padding: 30px; text-align: center; color: var(--muted); }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--bad-soft); border: 1px solid var(--bad); color: var(--bad); padding: 10px 16px; border-radius: 10px; z-index: 9; display: none; max-width: 80vw; }
+  .banner { margin: 12px 24px 0; padding: 10px 14px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-strong); border: 1px solid transparent; display: none; font-size: 13px; }
+  .banner b { font-family: var(--mono); }
+  .right { display: flex; flex-direction: column; gap: 16px; }
+  @media (max-width: 1100px) { main { grid-template-columns: 1fr; } .kpis { grid-template-columns: repeat(3, 1fr);} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><h1>Sprint Radar</h1><small>previsão de entrega com <span class="jev">Jev</span></small></div>
+  <select id="sprint"><option>Carregando sprints…</option></select>
+  <button class="btn" id="reload" title="Buscar de novo no Azure DevOps">↻ ADO</button>
+  <button class="btn primary" id="run" disabled>▶ Analisar com Jev</button>
+  <div class="meters">
+    <div class="meter time"><b id="mTime">0.00s</b><span>tempo</span></div>
+    <div class="meter"><b id="mDone">0 / 0</b><span>tasks</span></div>
+    <div class="meter"><b id="mTok">0</b><span>tokens</span></div>
+    <div class="meter cost"><b id="mCost">$0.0000</b><span>custo</span></div>
+  </div>
+</header>
+
+<section class="kpis" id="kpis"></section>
+<p class="banner" id="banner"></p>
+
+<main>
+  <section class="panel">
+    <h2>Feature → User Story → Task
+      <span class="sep"></span>
+      <span id="modelTag" style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0"></span>
+    </h2>
+    <div class="toolbar" id="toolbar">
+      <button class="chip on" data-stream="">Todas as raias</button>
+      <button class="chip" data-stream="Stream A">A · Motor</button>
+      <button class="chip" data-stream="Stream B">B · Contexto</button>
+      <button class="chip" data-stream="Stream C">C · Infra</button>
+      <button class="chip" data-stream="Stream D">D · PO</button>
+      <span class="sep"></span>
+      <select id="person" style="min-width:150px"><option value="">Todas as pessoas</option></select>
+      <button class="chip" id="onlyOpen">só abertas</button>
+      <button class="chip" id="onlyRisk">só em risco</button>
+      <button class="chip" id="sortRisk">ordenar por risco</button>
+    </div>
+    <div class="tree" id="tree"><div class="empty">Escolha uma sprint.</div></div>
+  </section>
+
+  <aside class="right">
+    <section class="panel">
+      <h2>Carga × capacidade restante</h2>
+      <div class="people" id="people"></div>
+    </section>
+    <section class="panel" id="summaryPanel" style="display:none">
+      <h2>Fatores de risco (Jev)</h2>
+      <div class="summary" id="summary"></div>
+    </section>
+    <section class="panel">
+      <h2>Task selecionada</h2>
+      <div class="detail" id="detail"><div class="empty">Clique numa task para ver o que o Jev viu e respondeu.</div></div>
+    </section>
+  </aside>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const RISK = {
+  on_track: "No prazo", owner_overloaded: "Dono sobrecarregado", blocked_external: "Bloqueio externo",
+  dependency_open: "Dependência aberta", not_started_large: "Grande e não iniciada",
+  scope_unclear: "Escopo vago", done_not_closed: "Entregue, não fechada",
+};
+const S = { snap: null, results: {}, rollup: {}, sel: null, filter: { stream: "", person: "", onlyOpen: false, onlyRisk: false, sortRisk: false }, running: false, timer: null };
+
+const fmtH = (h) => (Math.round(h * 10) / 10).toString().replace(".", ",");
+const pct = (p) => Math.round(p * 100) + "%";
+const cls = (p) => (p >= 0.7 ? "ok" : p >= 0.4 ? "warn" : "bad");
+const initials = (n) => n ? n.split(/[\s.]+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("") : "–";
+const money = (v) => "$" + v.toFixed(v < 0.01 ? 5 : 4);
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.style.display = "block"; setTimeout(() => (t.style.display = "none"), 6000); }
+
+async function api(path) {
+  const r = await fetch(path);
+  if (!r.ok) { let m = r.statusText; try { m = (await r.json()).detail || m; } catch {} throw new Error(m); }
+  return r.json();
+}
+
+async function init() {
+  try {
+    const cfg = await api("/api/config");
+    $("#modelTag").textContent = `${cfg.provider} · ${cfg.model}` + (cfg.has_jev_key ? "" : " · sem API key");
+    const sprints = await api("/api/sprints");
+    const sel = $("#sprint");
+    sel.innerHTML = "";
+    sprints.filter((s) => s.start).sort((a, b) => a.start.localeCompare(b.start)).forEach((s) => {
+      const o = document.createElement("option");
+      o.value = s.id;
+      o.textContent = `${s.name} · ${s.start.slice(0, 10)} → ${s.finish.slice(0, 10)}` + (s.timeframe === 1 ? " · atual" : "") + (s.offline ? " · offline" : "");
+      if (s.timeframe === 1) o.selected = true;
+      sel.appendChild(o);
+    });
+    if (sel.value) loadSprint(false);
+  } catch (e) { toast(e.message); }
+}
+
+async function loadSprint(refresh) {
+  const id = $("#sprint").value;
+  if (!id) return;
+  $("#tree").innerHTML = '<div class="empty">Buscando work items, capacidade e comentários…</div>';
+  $("#run").disabled = true;
+  S.results = {}; S.rollup = {}; S.sel = null; resetMeters();
+  try {
+    S.snap = await api(`/api/sprint/${id}` + (refresh ? "?refresh=1" : ""));
+    renderAll();
+    $("#run").disabled = false; $("#run").classList.add("ready");
+  } catch (e) { $("#tree").innerHTML = `<div class="empty">${e.message}</div>`; toast(e.message); }
+}
+
+function resetMeters() {
+  $("#mTime").textContent = "0.00s"; $("#mDone").textContent = "0 / 0"; $("#mTok").textContent = "0"; $("#mCost").textContent = "$0.0000";
+  $("#banner").style.display = "none"; $("#summaryPanel").style.display = "none";
+}
+
+function renderAll() { renderKpis(); renderPeople(); renderTree(); renderDetail(); }
+
+function renderKpis() {
+  const { sprint: sp, totals: t } = S.snap;
+  const ratio = t.load_ratio;
+  const rc = ratio == null ? "" : ratio > 1.2 ? "bad" : ratio > 0.9 ? "warn" : "ok";
+  $("#kpis").innerHTML = `
+    <div class="kpi"><span>Sprint</span><b>${sp.name}</b><small>${sp.start} → ${sp.finish}</small></div>
+    <div class="kpi ${sp.days_left <= 2 ? "warn" : ""}"><span>Dias úteis restantes</span><b>${sp.days_left} <small>/ ${sp.business_days}</small></b><small>hoje ${sp.today}, inclusive</small></div>
+    <div class="kpi"><span>Tasks abertas</span><b>${t.open_tasks} <small>/ ${t.tasks}</small></b><small>${t.items} itens na sprint</small></div>
+    <div class="kpi"><span>Horas restantes</span><b>${fmtH(t.remaining_h)}h</b><small>${fmtH(t.closed_h)}h fechadas de ${fmtH(t.scope_h)}h</small></div>
+    <div class="kpi"><span>Capacidade restante</span><b>${fmtH(t.capacity_h)}h</b><small>${S.snap.people.filter((p) => p.capacity_per_day > 0).length} pessoas</small></div>
+    <div class="kpi ${rc}"><span>Carga / capacidade</span><b>${ratio == null ? "—" : ratio.toFixed(1) + "×"}</b><small>${t.unassigned_h ? fmtH(t.unassigned_h) + "h sem dono" : "aritmética, sem IA"}</small></div>`;
+}
+
+function renderPeople() {
+  const box = $("#people"); box.innerHTML = "";
+  const ps = $("#person"); const cur = ps.value; ps.innerHTML = '<option value="">Todas as pessoas</option>';
+  const max = Math.max(...S.snap.people.map((p) => Math.max(p.remaining_h, p.remaining_capacity_h)), 1);
+  S.snap.people.forEach((p) => {
+    const o = document.createElement("option"); o.value = p.name; o.textContent = p.name; ps.appendChild(o);
+    const r = p.load_ratio; const c = r == null ? (p.remaining_h ? "bad" : "") : r > 1.2 ? "bad" : r > 0.9 ? "warn" : "";
+    const el = document.createElement("div"); el.className = "person";
+    el.innerHTML = `<div class="n" title="${p.name}"><span class="av">${initials(p.name)}</span> ${p.name.split(" ")[0]}${p.outside_team ? " *" : ""}</div>
+      <div class="bar" title="restante ${fmtH(p.remaining_h)}h · capacidade ${fmtH(p.remaining_capacity_h)}h${p.days_off_in_window ? " · " + p.days_off_in_window + " dia(s) off" : ""}">
+        <i class="${c}" style="width:${(p.remaining_h / max) * 100}%"></i><em style="left:${(p.remaining_capacity_h / max) * 100}%"></em></div>
+      <div class="r ${c ? "" : ""}" style="color:${c === "bad" ? "var(--bad)" : c === "warn" ? "var(--warn)" : "var(--muted)"}">${r == null ? (p.remaining_h ? "∞" : "—") : r.toFixed(1) + "×"}</div>`;
+    box.appendChild(el);
+  });
+  ps.value = cur;
+  const note = document.createElement("div"); note.style.cssText = "font-size:11px;color:var(--muted);padding-top:6px";
+  note.textContent = "Barra = horas restantes; traço = capacidade restante (dias úteis − days off) × h/dia.";
+  box.appendChild(note);
+}
+
+function visibleTask(n) {
+  const f = S.filter;
+  if (f.stream && n.stream !== f.stream) return false;
+  if (f.person && n.owner !== f.person) return false;
+  if (f.onlyOpen && !n.open) return false;
+  if (f.onlyRisk) { const r = S.results[n.id]; if (!r || r.will_close >= 0.5) return false; }
+  return true;
+}
+
+function renderTree() {
+  const nodes = S.snap.nodes; const tree = $("#tree"); tree.innerHTML = "";
+  const byId = (id) => nodes[String(id)];
+  const orderChildren = (ids) => {
+    const arr = ids.map(byId);
+    if (S.filter.sortRisk) arr.sort((a, b) => score(a) - score(b));
+    else arr.sort((a, b) => (a.type === "Task") - (b.type === "Task") || (a.type !== "Feature") - (b.type !== "Feature") || a.id - b.id);
+    return arr;
+  };
+  function score(n) {
+    if (n.type === "Task") { const r = S.results[n.id]; return r ? r.will_close : n.open ? 0.5 : 2; }
+    const a = S.rollup[String(n.id)]; return a ? a.p : 2;
+  }
+  const roots = orderChildren(S.snap.roots);
+  const rows = [];
+  function walk(n, level) {
+    const kids = orderChildren(n.children);
+    const taskRows = [];
+    let visibleCount = 0;
+    kids.forEach((k) => { if (k.type === "Task") { if (visibleTask(k)) { taskRows.push(k); visibleCount++; } } });
+    const subRows = [];
+    kids.forEach((k) => { if (k.type !== "Task") { const sub = walk(k, level + 1); if (sub) { subRows.push(sub); visibleCount += sub.count; } } });
+    if (n.type === "Task") return null;
+    if (!visibleCount && (S.filter.stream || S.filter.person || S.filter.onlyOpen || S.filter.onlyRisk)) return null;
+    return { n, level, taskRows, subRows, count: visibleCount };
+  }
+  roots.forEach((r) => { if (r.type === "Task") { if (visibleTask(r)) rows.push({ task: r, level: 0 }); } else { const w = walk(r, 0); if (w) rows.push(w); } });
+  function emit(w) {
+    tree.appendChild(rowContainer(w.n, w.level));
+    w.taskRows.forEach((t) => tree.appendChild(rowTask(t, Math.min(w.level + 1, 2))));
+    w.subRows.forEach(emit);
+  }
+  rows.forEach((w) => (w.task ? tree.appendChild(rowTask(w.task, 2)) : emit(w)));
+  if (!tree.children.length) tree.innerHTML = '<div class="empty">Nada para mostrar com esses filtros.</div>';
+}
+
+function rowContainer(n, level) {
+  const el = document.createElement("div"); el.className = `row l${Math.min(level, 1)}`; el.dataset.id = n.id;
+  const agg = S.rollup[String(n.id)];
+  el.innerHTML = `<span class="tog open" data-tog="${n.id}">▸</span>
+    <div class="pill agg ${agg ? cls(agg.p) : ""}">${agg ? pct(agg.p) : "—"}</div>
+    <div class="risk">${agg ? `${agg.at_risk} de ${agg.tasks} em risco` : ""}</div>
+    <div class="title"><span class="type">${n.type}</span><span class="id">#${n.id}</span>${esc(n.title)}</div>
+    <div class="who"><span class="av">${initials(n.owner)}</span>${esc(n.owner)}</div>
+    <div class="hrs"></div>
+    <div class="state ${n.state}">${n.state}</div>`;
+  el.querySelector("[data-tog]").onclick = (ev) => {
+    const t = ev.currentTarget; t.classList.toggle("open");
+    let sib = el.nextElementSibling;
+    while (sib && +sib.dataset.level > level) { sib.classList.toggle("hidden", !t.classList.contains("open")); sib = sib.nextElementSibling; }
+  };
+  el.dataset.level = level;
+  return el;
+}
+
+function rowTask(n, level) {
+  const el = document.createElement("div"); el.className = `row l2 ${n.open ? "" : "dim"} ${S.sel === n.id ? "sel" : ""}`; el.dataset.id = n.id; el.dataset.level = level + 1;
+  const r = S.results[n.id];
+  const pill = r ? `<div class="pill ${cls(r.will_close)}">${pct(r.will_close)}</div>`
+    : `<div class="pill ${S.running && n.open ? "wait" : ""}">${n.open ? "…" : ""}</div>`;
+  const flags = r ? [r.blocked_external >= 0.5 ? "⛔" : "", r.done_not_closed >= 0.5 ? "✅" : ""].join("") : "";
+  el.innerHTML = `<span></span>${pill}
+    <div class="risk ${r ? r.risk_driver : ""}" title="${r ? "confiança " + pct(r.risk_confidence) : ""}">${r ? `<i></i>${RISK[r.risk_driver]} ${flags}` : ""}</div>
+    <div class="title" title="${esc(n.title)}"><span class="id">#${n.id}</span>${esc(n.title)}${n.stream_inherited ? ' <span class="type">(raia herdada)</span>' : ""}${!n.stream ? ' <span class="type">(sem raia)</span>' : ""}</div>
+    <div class="who"><span class="av">${initials(n.owner)}</span>${esc(n.owner || "sem dono")}</div>
+    <div class="hrs"><b>${fmtH(n.remaining_h)}h</b> rest · ${fmtH(n.estimate_h)}h est · ${fmtH(n.logged_h)}h apont</div>
+    <div class="state ${n.state}">${n.state}</div>`;
+  el.onclick = () => { S.sel = n.id; document.querySelectorAll(".row.sel").forEach((x) => x.classList.remove("sel")); el.classList.add("sel"); renderDetail(); };
+  return el;
+}
+
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+async function renderDetail() {
+  const box = $("#detail");
+  if (!S.sel) { box.innerHTML = '<div class="empty">Clique numa task para ver o que o Jev viu e respondeu.</div>'; return; }
+  const n = S.snap.nodes[String(S.sel)]; const r = S.results[n.id];
+  const g = (v, label) => `<div class="gauge"><b style="color:${v == null ? "var(--muted)" : label === "fecha" ? (cls(v) === "ok" ? "var(--ok)" : cls(v) === "warn" ? "var(--warn)" : "var(--bad)") : v >= 0.5 ? "var(--bad)" : "var(--muted)"}">${v == null ? "—" : pct(v)}</b><span>${label}</span></div>`;
+  let dist = "";
+  if (r) {
+    const entries = Object.entries(r.risk_probabilities).sort((a, b) => b[1] - a[1]);
+    dist = `<div class="dist">${entries.map(([k, v]) => `<div><span class="${k === r.risk_driver ? "top" : ""}">${RISK[k]}</span><div class="bar"><i style="width:${v * 100}%"></i></div><span style="font-family:var(--mono);text-align:right">${pct(v)}</span></div>`).join("")}</div>`;
+  }
+  box.innerHTML = `<h3>#${n.id} · ${esc(n.title)}</h3>
+    <div class="meta">${esc(n.owner || "sem dono")} · ${n.state} · ${n.stream || "sem raia"}${r ? ` · Jev em ${r.latency_ms} ms` : ""}</div>
+    <div class="gauges">${g(r && r.will_close, "fecha")}${g(r && r.blocked_external, "bloqueio ext.")}${g(r && r.done_not_closed, "já entregue")}</div>
+    ${r ? `<div style="font-size:12px;color:var(--muted)">Fator principal · confiança ${pct(r.risk_confidence)}</div>${dist}` : '<div style="font-size:12px;color:var(--muted)">Ainda sem julgamento do Jev.</div>'}
+    <div class="facts">
+      <div>Restante <b>${fmtH(n.remaining_h)}h</b></div><div>Estimado <b>${fmtH(n.estimate_h)}h</b></div>
+      <div>Apontado <b>${fmtH(n.logged_h)}h</b></div><div>Ativa há <b>${n.days_since_activated ?? "—"}</b> d</div>
+      <div>Última alteração <b>${n.days_since_changed ?? "—"}</b> d</div><div>Comentários lidos <b>${n.comments.length}</b></div>
+    </div>
+    <details id="stateBox"><summary>O que foi enviado ao Jev (state + perguntas)</summary><pre>carregando…</pre></details>`;
+  const det = box.querySelector("#stateBox");
+  det.addEventListener("toggle", async () => {
+    if (!det.open || det.dataset.loaded) return;
+    try { const d = await api(`/api/sprint/${$("#sprint").value}/task/${n.id}/state`); det.querySelector("pre").textContent = JSON.stringify(d, null, 2); det.dataset.loaded = "1"; }
+    catch (e) { det.querySelector("pre").textContent = e.message; }
+  }, { once: false });
+}
+
+function updateRow(id) {
+  const old = document.querySelector(`.row[data-id="${id}"]`);
+  if (!old) return;
+  const n = S.snap.nodes[String(id)];
+  const fresh = n.type === "Task" ? rowTask(n, +old.dataset.level - 1) : rowContainer(n, +old.dataset.level);
+  if (old.classList.contains("hidden")) fresh.classList.add("hidden");
+  const p = fresh.querySelector(".pill"); if (p) p.classList.add("pop");
+  old.replaceWith(fresh);
+}
+
+function runAnalysis() {
+  if (S.running || !S.snap) return;
+  S.running = true; S.results = {}; S.rollup = {}; resetMeters();
+  const btn = $("#run"); btn.disabled = true; btn.classList.remove("ready"); btn.textContent = "⏳ Jev analisando…";
+  renderTree();
+  const t0 = performance.now();
+  S.timer = setInterval(() => ($("#mTime").textContent = ((performance.now() - t0) / 1000).toFixed(2) + "s"), 50);
+  const es = new EventSource(`/api/sprint/${$("#sprint").value}/analyze`);
+  let total = 0;
+  es.addEventListener("start", (e) => { const d = JSON.parse(e.data); total = d.total; $("#mDone").textContent = `0 / ${total}`; });
+  es.addEventListener("result", (e) => {
+    const d = JSON.parse(e.data);
+    S.results[d.task_id] = d.answer;
+    updateRow(d.task_id);
+    if (S.sel === d.task_id) renderDetail();
+    $("#mDone").textContent = `${d.progress.done} / ${total}`;
+    $("#mTok").textContent = Math.round(d.progress.input_tokens + d.progress.output_tokens).toLocaleString("pt-BR");
+    $("#mCost").textContent = money(d.progress.cost_usd);
+  });
+  es.addEventListener("error", (e) => { if (e.data) { const d = JSON.parse(e.data); toast(`#${d.task_id}: ${d.message}`); } });
+  es.addEventListener("fatal", (e) => { toast(JSON.parse(e.data).message); finish(); });
+  es.addEventListener("done", (e) => {
+    const d = JSON.parse(e.data);
+    S.rollup = d.rollup;
+    $("#mTime").textContent = (d.elapsed_ms / 1000).toFixed(2) + "s";
+    $("#mCost").textContent = money(d.cost_usd);
+    finish();
+    renderTree();
+    renderSummary(d);
+  });
+  es.onerror = () => { if (S.running) { toast("Conexão com o servidor interrompida."); finish(); } };
+  function finish() { clearInterval(S.timer); S.running = false; es.close(); btn.disabled = false; btn.textContent = "▶ Analisar de novo"; }
+}
+
+function renderSummary(d) {
+  const rs = Object.values(S.results);
+  const counts = {}; rs.forEach((r) => (counts[r.risk_driver] = (counts[r.risk_driver] || 0) + 1));
+  const atRisk = rs.filter((r) => r.will_close < 0.5).length;
+  const blocked = rs.filter((r) => r.blocked_external >= 0.5).length;
+  const done = rs.filter((r) => r.done_not_closed >= 0.5).length;
+  const hoursAtRisk = rs.reduce((acc, r, i) => acc, 0);
+  let hrs = 0; Object.entries(S.results).forEach(([id, r]) => { if (r.will_close < 0.5) hrs += S.snap.nodes[id].remaining_h; });
+  $("#summary").innerHTML = Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div><span class="risk ${k}"><i></i>${RISK[k]}</span><b>${v}</b></div>`).join("")
+    + `<div style="grid-column:1/-1;border-top:1px solid var(--border);margin-top:4px;padding-top:6px"><span>⛔ esperando alguém de fora</span><b>${blocked}</b></div>
+       <div style="grid-column:1/-1"><span>✅ entregues, só falta fechar</span><b>${done}</b></div>`;
+  $("#summaryPanel").style.display = "";
+  const b = $("#banner");
+  b.innerHTML = `<b>${d.analyzed}</b> tasks julgadas em <b>${(d.elapsed_ms / 1000).toFixed(2)}s</b> por <b>${money(d.cost_usd)}</b> (${d.cost_source === "provider" ? "custo informado" : "estimado"}, ${Math.round(d.input_tokens).toLocaleString("pt-BR")} tokens de entrada; saída não é cobrada) · modelo <b>${d.model}</b>.
+    &nbsp; <b>${atRisk}</b> tasks (${fmtH(hrs)}h) com menos de 50% de chance de fechar até ${S.snap.sprint.finish}.`;
+  b.style.display = "block";
+}
+
+$("#sprint").onchange = () => loadSprint(false);
+$("#reload").onclick = () => loadSprint(true);
+$("#run").onclick = runAnalysis;
+$("#toolbar").querySelectorAll("[data-stream]").forEach((c) => (c.onclick = () => { $("#toolbar").querySelectorAll("[data-stream]").forEach((x) => x.classList.remove("on")); c.classList.add("on"); S.filter.stream = c.dataset.stream; renderTree(); }));
+$("#person").onchange = (e) => { S.filter.person = e.target.value; renderTree(); };
+[["onlyOpen", "onlyOpen"], ["onlyRisk", "onlyRisk"], ["sortRisk", "sortRisk"]].forEach(([id, key]) => ($("#" + id).onclick = (e) => { S.filter[key] = !S.filter[key]; e.currentTarget.classList.toggle("on", S.filter[key]); renderTree(); }));
+init();
+</script>
+</body>
+</html>

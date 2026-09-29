@@ -11,7 +11,7 @@ Requer Python 3.11+ e [uv](https://docs.astral.sh/uv/).
 ```bash
 cd skill-validator
 uv sync --extra dev
-uv run skill-validator examples/summarize-notes --local-only
+uv run skill-validator examples/summarize-notes 
 ```
 
 O `.env` local já foi criado com valores vazios e está ignorado pelo Git. Em uma nova
@@ -30,8 +30,7 @@ TYPESAFE_MODEL=jev-latest
 ```
 
 ```bash
-uv run skill-validator examples/summarize-notes \
-  --json reports/typesafe.json --markdown reports/typesafe.md
+uv run skill-validator examples/summarize-notes --json reports/typesafe.json --markdown reports/typesafe.md
 ```
 
 Para chamar o OpenRouter, edite `.env`:
@@ -94,6 +93,8 @@ extensões de runtimes. Neste demo, aliases/merges YAML são rejeitados explicit
 O scanner lê também arquivos ocultos, como `.env`, e não executa scripts da skill.
 Symlinks, arquivos ilegíveis e inspeções interrompidas por limites geram erros locais.
 Binários são escaneados por padrões textuais, mas não entram na avaliação semântica.
+Extensões em `allowed_binary_extensions` da policy (imagens, fontes, PDF) são aceitas
+sem aviso; as demais geram o aviso `scan.binary`.
 Links externos não são acessados. A análise de referências usa heurísticas Markdown:
 não cobre links por referência nem resolve variáveis em scripts.
 
@@ -136,7 +137,9 @@ do limite solicita revisão antes de reprovar uma nota incerta. Uma resposta aus
 malformada, com valores não finitos ou probabilidades inconsistentes nunca é aprovada.
 
 O JSON guarda scores, probabilidades, confiança, modelo efetivo, consumo reportado,
-tempo e a policy utilizada. Não contém os documentos da skill nem a API key. Isso
+custo em USD, tempo e a policy utilizada. Se o provedor não informa `usage.cost` (a
+TypeSafe só devolve tokens), o custo é estimado pela tabela `PRICES_PER_MTOK` em
+`semantic.py` e marcado com `cost_source: "estimated"`. Não contém os documentos da skill nem a API key. Isso
 permite recalcular pesos/limites sem repetir a inferência; alterar perguntas ou níveis
 exige nova avaliação. O Markdown e o terminal resumem os resultados sem inventar uma
 justificativa em texto livre atribuída ao Jev.

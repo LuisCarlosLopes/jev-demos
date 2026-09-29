@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de IA · Jev</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="simulated" class="banner" hidden>
+    Modo simulado (JEV_FAKE=1): heurística lexical local, sem Jev. Latência e relevância não representam o modelo.
+  </div>
+  <div id="unconfigured" class="banner warn" hidden>
+    Nenhuma API key configurada: preencha o <code>.env</code>. A busca funciona só com o filtro local.
+  </div>
+
+  <header class="top">
+    <div class="brand">
+      <h1>Catálogo de IA</h1>
+      <p>Skills, MCPs e plugins disponíveis na empresa. Descreva o que precisa: o Jev decide o que é relevante enquanto você digita.</p>
+    </div>
+    <div class="session" aria-label="Sessão">
+      <div><span id="s-searches">0</span><small>buscas no Jev</small></div>
+      <div><span id="s-decisions">0</span><small>decisões</small></div>
+      <div><span id="s-avg">—</span><small>latência média</small></div>
+      <div><span id="s-cost">US$ 0</span><small>custo da sessão</small></div>
+    </div>
+  </header>
+
+  <section class="search-area">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" maxlength="300"
+             placeholder="Ex.: preciso revisar PRs de um serviço em C#" aria-label="Buscar artefatos">
+      <div id="pulse" class="pulse" hidden><span></span><b id="pulse-ms">0 ms</b></div>
+    </div>
+
+    <div class="examples" id="examples" aria-label="Exemplos"></div>
+
+    <div class="persona">
+      <span class="label">Você:</span>
+      <select id="persona-team" aria-label="Seu time"><option value="">time não informado</option></select>
+      <div id="persona-tech" class="tech-pick" aria-label="Sua stack"></div>
+    </div>
+
+    <div class="decision-bar">
+      <div id="chips" class="chips" aria-live="polite"></div>
+      <div id="telemetry" class="telemetry" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <aside class="filters">
+      <div class="filters-head">
+        <h2>Filtros</h2>
+        <button id="clear-filters" class="link" type="button">limpar</button>
+      </div>
+      <div id="filter-groups"></div>
+
+      <details class="tuning" open>
+        <summary>Limiares</summary>
+        <label>Relevância mínima <output id="rel-out">60%</output>
+          <input id="rel" type="range" min="0.1" max="0.95" step="0.05" value="0.6"></label>
+        <label>Confiança para aplicar filtro <output id="facet-out">70%</output>
+          <input id="facet" type="range" min="0.3" max="0.95" step="0.05" value="0.7"></label>
+        <p class="hint">Os limiares recalculam a tela com as probabilidades já recebidas, sem nova chamada ao Jev.</p>
+      </details>
+    </aside>
+
+    <section class="results">
+      <div class="results-head">
+        <h2 id="results-title">Todos os artefatos</h2>
+        <span id="results-note" class="note"></span>
+      </div>
+      <div id="empty" class="empty" hidden></div>
+      <div id="grid" class="grid"></div>
+
+      <details id="log" class="log" hidden>
+        <summary id="log-title">Decisões desta busca</summary>
+        <div id="log-body"></div>
+      </details>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

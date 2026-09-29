@@ -28,6 +28,7 @@ def inspect_skill(root: Path, policy: dict, known_secrets: tuple[str, ...] = ())
     total = 0
     count = 0
     stopped = False
+    allowed_binary = set(policy.get("allowed_binary_extensions", []))
 
     def walk_error(error):
         finding("scan.unreadable", "Não foi possível inspecionar parte da pasta.")
@@ -75,20 +76,15 @@ def inspect_skill(root: Path, policy: dict, known_secrets: tuple[str, ...] = ())
             try:
                 decoded = raw.decode("utf-8")
             except UnicodeDecodeError:
-                finding(
-                    "scan.binary",
-                    "Binário: padrões escaneados; conteúdo fora da avaliação Jev.",
-                    relative,
-                    severity="warning",
-                )
-                continue
-            if "\x00" in decoded:
-                finding(
-                    "scan.binary",
-                    "Binário: padrões escaneados; conteúdo fora da avaliação Jev.",
-                    relative,
-                    severity="warning",
-                )
+                decoded = None
+            if decoded is None or "\x00" in decoded:
+                if path.suffix.lower() not in allowed_binary:
+                    finding(
+                        "scan.binary",
+                        "Binário: padrões escaneados; conteúdo fora da avaliação Jev.",
+                        relative,
+                        severity="warning",
+                    )
                 continue
             snapshot.files[relative] = decoded
         if stopped:
@@ -120,13 +116,26 @@ def inspect_skill(root: Path, policy: dict, known_secrets: tuple[str, ...] = ())
         return snapshot
     try:
         metadata = load_yaml("\n".join(lines[1:closing]))
-    except (yaml.YAMLError, ValueError, RecursionError):
+    except yaml.MarkedYAMLError as error:
+        # Só a causa do parser e a posição; nunca o trecho (pode conter segredo).
+        mark = error.problem_mark
+        line = mark.line + 2 if mark else 2
+        column = f", coluna {mark.column + 1}" if mark else ""
+        hint = (
+            " Use aspas ou um bloco '>-' em valores que contêm ': '."
+            if "mapping values are not allowed" in str(error.problem)
+            else ""
+        )
         finding(
             "frontmatter.yaml",
-            "YAML inválido, duplicado ou com aliases não suportados.",
+            f"YAML inválido{column}: {error.problem}.{hint}",
             "SKILL.md",
-            2,
+            line,
         )
+        return snapshot
+    except (yaml.YAMLError, ValueError, RecursionError) as error:
+        detail = str(error) if isinstance(error, ValueError) else "YAML inválido."
+        finding("frontmatter.yaml", detail, "SKILL.md", 2)
         return snapshot
     if not isinstance(metadata, dict):
         finding("frontmatter.mapping", "Frontmatter deve ser um mapa YAML.", "SKILL.md", 2)

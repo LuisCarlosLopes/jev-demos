@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jev-story-sizer"
+version = "0.1.0"
+description = "Sugestão de tamanho (t-shirt size) de User Stories do Azure DevOps com Jev."
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28,<1",
+  "python-dotenv>=1.1,<2",
+  "PyYAML>=6.0.2,<7",
+  "rich>=14,<15",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.24,<1", "ruff>=0.12,<1"]
+
+[project.scripts]
+story-sizer = "story_sizer.cli:main"
+story-sizer-web = "story_sizer.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/story_sizer"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
