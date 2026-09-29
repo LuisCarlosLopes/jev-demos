@@ -46,7 +46,7 @@ class Settings:
         return cls(
             ado_org=(env.get("ADO_ORG") or "exemplo-org").strip(),
             ado_project=(env.get("ADO_PROJECT") or "Projeto Demo").strip(),
-            ado_team=(env.get("ADO_TEAM") or "Speed").strip(),
+            ado_team=(env.get("ADO_TEAM") or "Team-demo").strip(),
             ado_pat=(env.get("AZURE_DEVOPS_PAT") or "").strip(),
             provider=provider,
             api_key=(env.get(f"{prefix}_API_KEY") or "").strip(),

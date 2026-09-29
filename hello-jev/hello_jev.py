@@ -3,8 +3,9 @@
     python hello_jev.py
     python hello_jev.py "O suporte demorou 3 dias e ninguém resolveu meu problema."
 
-Só usa a biblioteca padrão. A chave vem de TYPESAFE_API_KEY (variável de ambiente ou
-arquivo .env ao lado deste script ou em ../skill-validator/.env).
+Só usa a biblioteca padrão. O provedor vem de JEV_PROVIDER (typesafe ou openrouter).
+A chave e o modelo vêm de TYPESAFE_* ou OPENROUTER_*, na variável de ambiente ou em
+um arquivo .env ao lado deste script ou em ../skill-validator/.env.
 """
 
 import json
@@ -15,9 +16,13 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-ENDPOINT = "https://api.typesafe.ai/v1/systemone"
-MODEL = "jev-1.13.0"  # fixo em vez de jev-latest, para resultados comparáveis
-PRICE_PER_MTOK_INPUT = 0.042  # USD; tokens de saída são gratuitos
+ENDPOINTS = {
+    "typesafe": "https://api.typesafe.ai/v1/systemone",
+    "openrouter": "https://openrouter.ai/api/alpha/decisions",
+}
+# jev-1.13.0 fica fixo na TypeSafe, em vez de jev-latest, para resultados comparáveis.
+DEFAULT_MODELS = {"typesafe": "jev-1.13.0", "openrouter": "typesafe/jev-1.13"}
+PRICE_PER_MTOK_INPUT = 0.042  # USD; tokens de saída são gratuitos. O OpenRouter informa o custo.
 
 DEFAULT_TEXT = "Comprei há duas semanas e o produto já quebrou. Quero meu dinheiro de volta!"
 
@@ -59,26 +64,55 @@ QUESTIONS = {
 }
 
 
-def load_api_key() -> str:
-    if os.environ.get("TYPESAFE_API_KEY"):
-        return os.environ["TYPESAFE_API_KEY"]
+def _parse_env_file(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    if not path.is_file():
+        return values
+    for line in path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+        name, _, value = stripped.partition("=")
+        value = value.strip().strip("\"'")
+        if name.strip() and value:
+            values[name.strip()] = value
+    return values
+
+
+def load_env() -> dict[str, str]:
+    """Processo prevalece sobre o .env local, que prevalece sobre ../skill-validator/.env."""
     here = Path(__file__).resolve().parent
-    for env_file in (here / ".env", here.parent / "skill-validator" / ".env"):
-        if env_file.is_file():
-            for line in env_file.read_text(encoding="utf-8").splitlines():
-                name, _, value = line.partition("=")
-                if name.strip() == "TYPESAFE_API_KEY" and value.strip():
-                    return value.strip().strip("\"'")
-    sys.exit("Defina TYPESAFE_API_KEY (variável de ambiente ou arquivo .env).")
+    merged: dict[str, str] = {}
+    for env_file in (here.parent / "skill-validator" / ".env", here / ".env"):
+        merged.update(_parse_env_file(env_file))
+    for name, value in os.environ.items():
+        if value and value.strip():
+            merged[name] = value.strip().strip("\"'")
+    return merged
 
 
-def ask_jev(state: str, questions: dict, api_key: str) -> dict:
-    body = json.dumps({"model": MODEL, "state": state, "questions": questions}).encode()
-    request = urllib.request.Request(
-        ENDPOINT,
-        data=body,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-    )
+def resolve_connection(env: dict[str, str] | None = None) -> tuple[str, str, str, str]:
+    """Devolve provedor, chave, modelo e endpoint."""
+    values = load_env() if env is None else env
+    provider = values.get("JEV_PROVIDER", "typesafe")
+    if provider not in ENDPOINTS:
+        sys.exit("JEV_PROVIDER deve ser typesafe ou openrouter.")
+    prefix = provider.upper()
+    api_key = values.get(f"{prefix}_API_KEY", "")
+    if not api_key:
+        sys.exit(f"Defina {prefix}_API_KEY (variável de ambiente ou arquivo .env).")
+    model = values.get(f"{prefix}_MODEL") or DEFAULT_MODELS[provider]
+    return provider, api_key, model, ENDPOINTS[provider]
+
+
+def ask_jev(
+    state: str, questions: dict, api_key: str, model: str, endpoint: str, provider: str
+) -> dict:
+    body = json.dumps({"model": model, "state": state, "questions": questions}).encode()
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    if provider == "openrouter":
+        headers["X-Title"] = "Jev Hello Demo"
+    request = urllib.request.Request(endpoint, data=body, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.load(response)
@@ -95,10 +129,10 @@ def bar(probability: float, width: int = 20) -> str:
 
 def main() -> None:
     text = " ".join(sys.argv[1:]) or DEFAULT_TEXT
-    api_key = load_api_key()
+    provider, api_key, model, endpoint = resolve_connection()
 
     started = time.perf_counter()
-    data = ask_jev(text, QUESTIONS, api_key)
+    data = ask_jev(text, QUESTIONS, api_key, model, endpoint, provider)
     elapsed_ms = (time.perf_counter() - started) * 1000
     answers = data["answers"]
 
@@ -119,11 +153,16 @@ def main() -> None:
     print(f"Score  urgência: {score['score']:.2f} de {top}  (confiança {score['confidence']:.0%})")
     print(f"         nível mais provável: {QUESTIONS['urgency']['criteria'][round(score['score'])]}")
 
-    usage = data.get("usage", {})
-    cost = usage.get("input_tokens", 0) * PRICE_PER_MTOK_INPUT / 1_000_000
+    usage = data.get("usage") or {}
+    reported = usage.get("cost")
+    if isinstance(reported, int | float):
+        cost_label = f"US$ {float(reported):.6f}"
+    else:
+        estimated = usage.get("input_tokens", 0) * PRICE_PER_MTOK_INPUT / 1_000_000
+        cost_label = f"~US$ {estimated:.6f}"
     print(
         f"\n{data['model']} · {elapsed_ms:.0f} ms · {usage.get('input_tokens', '?')} tokens de "
-        f"entrada · ~US$ {cost:.6f}"
+        f"entrada · {cost_label}"
     )
 
     # É aqui que o Jev vira código: decisão por limiar, sem interpretar texto livre.

@@ -65,13 +65,16 @@ def build_questions(policy: dict) -> dict:
 class JevClient:
     def __init__(self, settings: Settings, transport: httpx.AsyncBaseTransport | None = None):
         if not settings.jev_api_key:
-            raise JevError("Preencha TYPESAFE_API_KEY no .env.")
+            raise JevError(f"Preencha {settings.provider.upper()}_API_KEY no .env.")
         self.s = settings
+        headers = {
+            "Authorization": f"Bearer {settings.jev_api_key}",
+            "Content-Type": "application/json",
+        }
+        if settings.provider == "openrouter":
+            headers["X-Title"] = "Jev Story Sizer Demo"
         self._client = httpx.AsyncClient(
-            headers={
-                "Authorization": f"Bearer {settings.jev_api_key}",
-                "Content-Type": "application/json",
-            },
+            headers=headers,
             timeout=settings.jev_timeout,
             transport=transport,
             follow_redirects=False,
@@ -102,11 +105,14 @@ class JevClient:
             elapsed_ms = int((time.perf_counter() - started) * 1000)
         if r.status_code >= 300:
             hints = {
-                401: "Confira a TYPESAFE_API_KEY.",
-                422: "O Jev rejeitou o contrato da requisição.",
-                429: "Limite de requisições; tente de novo.",
+                401: "Confira a API key do provedor selecionado.",
+                403: "Confira as permissões da API key.",
+                404: "Confira o modelo e a disponibilidade da API de decisões.",
+                422: "O provedor rejeitou o contrato da requisição.",
+                429: "Limite de requisições; tente novamente depois.",
             }
-            raise JevError(f"Jev HTTP {r.status_code}. {hints.get(r.status_code, '')}".strip())
+            hint = hints.get(r.status_code, "O provedor não concluiu a avaliação.")
+            raise JevError(f"API HTTP {r.status_code}. {hint}")
         try:
             data = r.json()
         except (json.JSONDecodeError, ValueError):

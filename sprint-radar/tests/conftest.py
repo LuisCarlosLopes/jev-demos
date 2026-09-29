@@ -7,7 +7,7 @@ from sprint_radar import model
 ITERATION = {
     "id": "it-6",
     "name": "Sprint06",
-    "path": "Projeto Demo\\Speed\\Sprint06",
+    "path": "Projeto Demo\\Team-demo\\Sprint06",
     "start": "2026-09-21T00:00:00Z",
     "finish": "2026-10-02T00:00:00Z",
 }

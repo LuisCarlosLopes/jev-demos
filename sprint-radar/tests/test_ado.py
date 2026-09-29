@@ -8,7 +8,7 @@ from sprint_radar.config import Settings
 
 
 def settings(pat="pat"):
-    return Settings("exemplo-org", "Projeto Demo", "Speed", pat)
+    return Settings("exemplo-org", "Projeto Demo", "Team-demo", pat)
 
 
 async def test_urls_auth_and_batching():
@@ -19,7 +19,7 @@ async def test_urls_auth_and_batching():
         assert request.headers["Authorization"].startswith("Basic ")
         url = str(request.url)
         if url.endswith("/iterations?api-version=7.1"):
-            assert "/Projeto%20Demo/Speed/_apis/work/" in url
+            assert "/Projeto%20Demo/Team-demo/_apis/work/" in url
             return httpx.Response(
                 200,
                 json={
@@ -34,7 +34,8 @@ async def test_urls_auth_and_batching():
                 },
             )
         if "/wiql" in url:
-            assert "UNDER 'Projeto Demo\\Speed\\Sprint06'" in json.loads(request.content)["query"]
+            query = json.loads(request.content)["query"]
+            assert "UNDER 'Projeto Demo\\Team-demo\\Sprint06'" in query
             return httpx.Response(200, json={"workItems": [{"id": i} for i in range(250)]})
         if "/workitemsbatch" in url:
             ids = json.loads(request.content)["ids"]
@@ -69,7 +70,7 @@ async def test_urls_auth_and_batching():
 
     ado = AdoClient(settings(), httpx.MockTransport(handler))
     assert (await ado.list_iterations())[0]["name"] == "Sprint06"
-    ids = await ado.iteration_work_item_ids("Projeto Demo\\Speed\\Sprint06")
+    ids = await ado.iteration_work_item_ids("Projeto Demo\\Team-demo\\Sprint06")
     assert len(ids) == 250
     assert len(await ado.work_items(ids)) == 250
     people, off = await ado.capacity("a")

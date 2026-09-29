@@ -6,7 +6,7 @@ partir do título, descrição e critérios de aceite. A interface mostra a **di
 probabilidade** de cada story, não só a letra vencedora: é o que diferencia um modelo de
 decisão de um chat pedindo "qual o tamanho?".
 
-Na Sprint06 do time Speed: 31 stories classificadas em 3,4 s, 73 mil tokens, US$ 0,003.
+Na Sprint06 do time Team-demo: 31 stories classificadas em 3,4 s, 73 mil tokens, US$ 0,003.
 
 ## Executar
 
@@ -14,10 +14,28 @@ Requer Python 3.11+ e [uv](https://docs.astral.sh/uv/).
 
 ```bash
 cd story-sizer
-cp .env.example .env    # preencha AZURE_DEVOPS_PAT e TYPESAFE_API_KEY
+cp .env.example .env    # preencha AZURE_DEVOPS_PAT e a chave do provedor
 uv sync --extra dev
 uv run story-sizer-web  # http://127.0.0.1:8765
 ```
+
+A web lê o `.env`. Para a TypeSafe:
+
+```dotenv
+JEV_PROVIDER=typesafe
+TYPESAFE_API_KEY=<sua-chave-typesafe>
+TYPESAFE_MODEL=jev-1.13.0
+```
+
+Para o OpenRouter, a Decisions API usa o mesmo corpo `{model, state, questions}`:
+
+```dotenv
+JEV_PROVIDER=openrouter
+OPENROUTER_API_KEY=<sua-chave-openrouter>
+OPENROUTER_MODEL=typesafe/jev-1.13
+```
+
+Na CLI, `--provider` prevalece sobre `JEV_PROVIDER`.
 
 O PAT precisa do escopo *Work Items (Read)*. Para o botão "Aplicar no ADO" funcionar,
 use *Read & Write* e defina `ALLOW_WRITE=true`; por padrão a escrita fica desligada e
@@ -27,9 +45,9 @@ CLI, sem interface:
 
 ```bash
 uv run story-sizer sprints                                  # iterações do time
-uv run story-sizer stories --sprint "Projeto Demo\Speed\Sprint06"
-uv run story-sizer size --sprint "Projeto Demo\Speed\Sprint06" --limit 3 --json reports/s6.json
-uv run story-sizer validate --sprint "Projeto Demo\Speed\Sprint05" --json reports/val.json
+uv run story-sizer stories --sprint "Projeto Demo\Team-demo\Sprint06"
+uv run story-sizer size --sprint "Projeto Demo\Team-demo\Sprint06" --limit 3 --json reports/s6.json
+uv run story-sizer validate --sprint "Projeto Demo\Team-demo\Sprint05" --json reports/val.json
 ```
 
 ## Como o Jev é usado
@@ -113,10 +131,10 @@ alertas. Alterar critérios muda as respostas; alterar faixas e dias só muda a 
 ## Limites
 
 - Só texto. Anexos e imagens da story não entram.
-- Sem base rotulada no Speed (5 stories com `SR_TAMANHO` no projeto inteiro), a
+- Sem base rotulada no Team-demo (5 stories com `SR_TAMANHO` no projeto inteiro), a
   acurácia vem só do modo validação, que depende da qualidade dos apontamentos.
-- `jev-1.13.0` está fixado no `.env.example`; `jev-latest` pode mudar e quebrar
-  comparabilidade entre sprints.
+- `jev-1.13.0` está fixado no `.env.example` da TypeSafe; `jev-latest` pode mudar e
+  quebrar comparabilidade entre sprints. No OpenRouter o id é `typesafe/jev-1.13`.
 
 ## Testes
 

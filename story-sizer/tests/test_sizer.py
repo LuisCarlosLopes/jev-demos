@@ -1,3 +1,5 @@
+import json
+
 import httpx
 import pytest
 
@@ -72,6 +74,10 @@ def test_interpret_bands_and_flags(policy):
     assert r["flags"]["should_split"]["raised"] is False
     assert r["usage"]["cost_usd"] == pytest.approx(1000 * 0.042 / 1e6)
     assert r["expected_days"] == pytest.approx(0.1 * 1.5 + 0.6 * 4 + 0.3 * 7.5)
+    reported = interpret(
+        _answers(probs, 0.5, policy), {"input_tokens": 1000, "cost": 0.00012}, 400, policy
+    )
+    assert reported["usage"]["cost_usd"] == pytest.approx(0.00012)
 
 
 def test_interpret_rejects_bad_distribution(policy):
@@ -104,3 +110,49 @@ async def test_jev_client_retries_and_hides_body():
     assert len(calls) == 2
     assert "secret" not in str(exc.value)
     assert "key" not in str(exc.value)
+
+
+def test_env_selects_openrouter(tmp_path, monkeypatch):
+    for name in (
+        "JEV_PROVIDER",
+        "OPENROUTER_API_KEY",
+        "OPENROUTER_MODEL",
+        "TYPESAFE_API_KEY",
+        "TYPESAFE_MODEL",
+    ):
+        monkeypatch.delenv(name, raising=False)
+    env_file = tmp_path / ".env"
+    env_file.write_text("JEV_PROVIDER=openrouter\nOPENROUTER_API_KEY=fake-key-from-file\n")
+    settings = Settings.load(env_file)
+    assert settings.provider == "openrouter"
+    assert settings.jev_model == "typesafe/jev-1.13"
+    assert settings.jev_api_key == "fake-key-from-file"
+    assert settings.jev_api_key not in repr(settings)
+    assert settings.jev_endpoint == "https://openrouter.ai/api/alpha/decisions"
+    overridden = Settings.load(env_file, provider="typesafe")
+    assert overridden.provider == "typesafe"
+    assert overridden.jev_model == "jev-1.13.0"
+    assert overridden.jev_endpoint == "https://api.typesafe.ai/v1/systemone"
+
+
+async def test_openrouter_client_sends_title_and_model():
+    seen = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen["url"] = str(request.url)
+        seen["title"] = request.headers.get("X-Title")
+        seen["model"] = json.loads(request.content)["model"]
+        return httpx.Response(200, json={"model": "typesafe/jev-1.13", "answers": {}})
+
+    settings = Settings(
+        "o", "p", "t", "pat", "or-key", "typesafe/jev-1.13", 5, 2, False, "openrouter"
+    )
+    client = JevClient(settings, transport=httpx.MockTransport(handler))
+    data = await client.evaluate({"story": {}}, {"size": {"type": "choice"}})
+    await client.aclose()
+    assert data["answers"] == {}
+    assert seen == {
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "title": "Jev Story Sizer Demo",
+        "model": "typesafe/jev-1.13",
+    }

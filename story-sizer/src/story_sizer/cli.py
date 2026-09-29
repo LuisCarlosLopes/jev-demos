@@ -16,7 +16,7 @@ console = Console()
 
 
 def _settings(args) -> Settings:
-    return Settings.load(Path(args.env_file) if args.env_file else None)
+    return Settings.load(Path(args.env_file) if args.env_file else None, provider=args.provider)
 
 
 async def cmd_sprints(args) -> int:
@@ -233,6 +233,7 @@ async def cmd_validate(args) -> int:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Sugestão de tamanho de User Stories com Jev.")
     p.add_argument("--env-file")
+    p.add_argument("--provider", choices=("typesafe", "openrouter"))
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("sprints", help="Lista as iterações do time.")
     ps = sub.add_parser("stories", help="Lista stories de uma sprint.")

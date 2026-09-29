@@ -23,7 +23,7 @@ que prevalece sobre o `.env`. O PAT precisa de leitura em *Work Items* e *Work*.
 AZURE_DEVOPS_PAT=<seu-pat>
 ADO_ORG=exemplo-org
 ADO_PROJECT=Projeto Demo
-ADO_TEAM=Speed
+ADO_TEAM=Team-demo
 JEV_PROVIDER=typesafe
 TYPESAFE_API_KEY=<sua-chave>
 ```

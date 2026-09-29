@@ -70,11 +70,13 @@ def interpret(answers: dict, usage: dict, elapsed_ms: int, policy: dict) -> dict
         }
 
     input_tokens = usage.get("input_tokens") if isinstance(usage, dict) else None
-    cost = (
-        round(input_tokens * PRICE_INPUT_PER_MTOK / 1_000_000, 8)
-        if _num(input_tokens, 0, 1e12)
-        else None
-    )
+    reported = usage.get("cost") if isinstance(usage, dict) else None
+    if _num(reported, 0, 1e12):
+        cost = round(float(reported), 8)
+    elif _num(input_tokens, 0, 1e12):
+        cost = round(input_tokens * PRICE_INPUT_PER_MTOK / 1_000_000, 8)
+    else:
+        cost = None
     return {
         "suggested": top,
         "second": second,
