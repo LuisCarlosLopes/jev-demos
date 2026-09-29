@@ -30,8 +30,16 @@ def load_policy(path: Path) -> dict[str, Any]:
         "dimensions",
         "risks",
     }
-    if not isinstance(policy, dict) or set(policy) != expected:
+    optional = {"allowed_binary_extensions"}
+    if not isinstance(policy, dict) or not expected <= set(policy) <= expected | optional:
         raise ValueError("A policy deve conter os campos definidos em policy.yaml.")
+    # Binários com estas extensões são escaneados e inventariados, sem gerar aviso.
+    extensions = policy.setdefault("allowed_binary_extensions", [])
+    if not isinstance(extensions, list) or any(
+        not isinstance(x, str) or not x.startswith(".") or len(x) < 2 for x in extensions
+    ):
+        raise ValueError("allowed_binary_extensions deve listar extensões como '.png'.")
+    policy["allowed_binary_extensions"] = [x.lower() for x in extensions]
     if not isinstance(policy["version"], str) or not policy["version"].strip():
         raise ValueError("policy.version deve ser uma string não vazia.")
     for key, high in (

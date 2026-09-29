@@ -12,6 +12,11 @@ max_file_bytes: 1048576
 max_total_bytes: 10485760
 max_state_chars: 40000
 
+# Assets binários aceitos sem aviso. Continuam escaneados por segredos e listados no
+# inventário enviado ao Jev, mas o conteúdo não é enviado (o Jev só avalia texto).
+allowed_binary_extensions: [".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".pdf",
+  ".woff", ".woff2", ".ttf", ".otf"]
+
 dimensions:
   trigger_precision:
     label: Precisão dos gatilhos

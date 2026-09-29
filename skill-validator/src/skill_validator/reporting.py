@@ -15,6 +15,11 @@ STATUS = {
 }
 
 
+def cost_text(usage: dict) -> str:
+    suffix = " (estimado)" if usage.get("cost_source") == "estimated" else ""
+    return f"US$ {usage['cost']:.8f}{suffix}"
+
+
 def render_console(report: Report) -> None:
     console = Console(markup=False)
     console.print(f"Skill Validator · {STATUS[report.status]}")
@@ -34,6 +39,8 @@ def render_console(report: Report) -> None:
                 f"{d['weight']:.0%}",
             )
         console.print(table)
+        if "cost" in report.usage:
+            console.print(f"Custo: {cost_text(report.usage)}")
         for risk in report.risks.values():
             console.print(f"Risco · {risk['label']}: p={risk['probability']:.2f}")
     if report.findings:
@@ -66,6 +73,7 @@ def markdown(report: Report) -> str:
                 "",
                 f"Provedor: {cell(report.provider)} · Modelo: {cell(report.model)}",
                 "",
+                *([f"Custo: {cost_text(report.usage)}", ""] if "cost" in report.usage else []),
                 "| Dimensão | Nota / 100 | Confiança | Peso |",
                 "|---|---:|---:|---:|",
             ]

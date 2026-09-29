@@ -5,7 +5,7 @@ from .config import Settings
 from .local import inspect_skill
 from .models import Report
 from .providers import JevProvider, ProviderError
-from .semantic import build_request, decide, parse_response
+from .semantic import build_request, decide, parse_response, with_cost
 
 
 def validate(
@@ -39,7 +39,7 @@ def validate(
             response = (provider or JevProvider(settings)).evaluate(state, questions)
             dimensions, risks, usage, model = parse_response(response, policy)
             report.dimensions, report.risks = dimensions, risks
-            report.usage, report.model = usage, model
+            report.usage, report.model = with_cost(usage, model), model
             report.status, report.reasons, report.quality_score = decide(dimensions, risks, policy)
             report.semantic_status = "completed"
         except ProviderError as error:

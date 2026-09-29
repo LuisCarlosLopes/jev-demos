@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Live · Jev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:wght@500;700&family=Syne:wght@500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=2">
+</head>
+<body>
+<div class="app">
+
+  <!-- Brand: tudo aqui é dirigido por variáveis CSS e pelo catálogo -->
+  <main class="canvas is-blank" id="canvas" data-layout="split" data-font="sans">
+    <div class="blank-state" id="blank-state">
+      <h1>Construa a sua landing page</h1>
+    </div>
+    <div class="page">
+      <nav class="nav">
+        <div class="wordmark" id="wordmark">Trilho</div>
+        <div class="nav-links"><span>Produto</span><span>Clientes</span><span>Preços</span></div>
+        <button class="btn btn-primary btn-sm" id="nav-cta">Testar grátis</button>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-text">
+          <span class="eyebrow" id="eyebrow">SaaS B2B</span>
+          <h1 class="headline" id="headline">Menos planilha. Mais coisa feita.</h1>
+          <p class="sub" id="sub">Tudo do seu time num lugar só.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="cta">Testar grátis</button>
+            <button class="btn btn-ghost">Ver demonstração</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-card">
+            <div class="visual-bar" style="width:70%"></div>
+            <div class="visual-bar" style="width:45%"></div>
+            <div class="visual-bar accent" style="width:85%"></div>
+            <div class="visual-dots"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" data-section="features">
+        <div class="feature"><span class="feature-n">01</span><h3 id="f0">Integrações nativas</h3></div>
+        <div class="feature"><span class="feature-n">02</span><h3 id="f1">Relatórios em tempo real</h3></div>
+        <div class="feature"><span class="feature-n">03</span><h3 id="f2">Permissões por time</h3></div>
+      </section>
+
+      <section class="pricing" data-section="pricing">
+        <div class="plan"><span>Início</span><strong>R$ 0</strong><small>por mês</small></div>
+        <div class="plan featured"><span>Pro</span><strong>R$ 89</strong><small>por usuário</small></div>
+        <div class="plan"><span>Empresa</span><strong>Sob consulta</strong><small>anual</small></div>
+      </section>
+
+      <section class="mocks">
+        <div class="mock email" data-section="email">
+          <div class="mock-head">
+            <span class="avatar" id="email-avatar">T</span>
+            <div><strong id="email-from">Trilho</strong><small id="email-subject">Seu teste tá liberado</small></div>
+          </div>
+          <p id="email-body">Cinco minutos e sua primeira integração tá no ar.</p>
+          <button class="btn btn-primary btn-sm" id="email-cta">Testar grátis</button>
+        </div>
+        <div class="mock social" data-section="social">
+          <div class="mock-head">
+            <span class="avatar" id="social-avatar">T</span>
+            <div><strong id="social-from">Trilho</strong><small>@trilho · agora</small></div>
+          </div>
+          <p id="social-body">Reunião que podia ser um dashboard.</p>
+          <div class="social-media"></div>
+          <div class="social-actions"><span>♡ 128</span><span>↻ 34</span><span>↗</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Painel de decisões -->
+  <aside class="panel">
+    <header class="panel-head">
+      <div>
+        <h2>Brand Live</h2>
+        <p class="muted">Fale ou digite. O Jev decide; a página reage.</p>
+      </div>
+      <span class="badge" id="model-badge">…</span>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><span id="stat-count">0</span><label>decisões</label></div>
+      <div class="stat"><span id="stat-ms">–</span><label>ms médio</label></div>
+      <div class="stat"><span id="stat-cost">$0</span><label>custo total</label></div>
+    </div>
+
+    <div class="controls">
+      <button class="mic" id="mic" title="Falar (pt-BR)" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+          <path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V22h2v-3.08A7 7 0 0 0 19 12z"/>
+        </svg>
+      </button>
+      <form id="form" class="input-row" autocomplete="off">
+        <input id="input" type="text" placeholder='ex.: "fundo vermelho", "vender café", "mais leve"' maxlength="400">
+        <button type="submit" class="send">→</button>
+      </form>
+    </div>
+    <div class="live" id="live"><span class="live-dot"></span><span id="live-text">microfone parado</span></div>
+
+    <details class="thresholds">
+      <summary>Limiares</summary>
+      <label>aplicar ≥ <output id="apply-out">0.60</output><input type="range" id="apply" min="0.3" max="0.95" step="0.05" value="0.6"></label>
+      <label>perguntar ≥ <output id="ask-out">0.35</output><input type="range" id="ask" min="0.1" max="0.7" step="0.05" value="0.35"></label>
+      <p class="muted small">O Jev devolve probabilidades; os limiares são do navegador. Mexer aqui não custa nova inferência.</p>
+    </details>
+
+    <ol class="decisions" id="decisions" reversed></ol>
+
+    <div class="hint" id="hint">
+      Experimente: <em>"quero vender consultoria de RH"</em> · <em>"fundo vermelho"</em> ·
+      <em>"isso está muito sério, deixa mais leve"</em> · <em>"muda pra vender tênis"</em> ·
+      <em>"tira o e-mail"</em> · <em>"volta"</em>
+    </div>
+  </aside>
+</div>
+<script src="/static/app.js?v=2"></script>
+</body>
+</html>

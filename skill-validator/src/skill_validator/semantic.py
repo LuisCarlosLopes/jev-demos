@@ -102,6 +102,34 @@ def parse_response(data: dict, policy: dict) -> tuple[dict, dict, dict, str]:
     return dimensions, risks, safe_usage, model
 
 
+# USD por milhão de tokens, conforme https://docs.typesafe.ai/models (set/2026).
+# Jev cobra apenas entrada; tokens de saída são gratuitos.
+PRICES_PER_MTOK = {"jev-1.13": {"input": 0.042, "output": 0.0}}
+
+
+def with_cost(usage: dict, model: str) -> dict:
+    """Acrescenta custo em USD: o informado pelo provedor ou uma estimativa pela tabela."""
+    if "cost" in usage:
+        return {**usage, "cost_currency": "USD", "cost_source": "provider"}
+    name = model.removeprefix("typesafe/")
+    price = next(
+        (p for key, p in PRICES_PER_MTOK.items() if name == key or name.startswith(key + ".")),
+        None,
+    )
+    if price is None or "input_tokens" not in usage:
+        return usage
+    cost = (
+        usage["input_tokens"] * price["input"] + usage.get("output_tokens", 0) * price["output"]
+    ) / 1_000_000
+    return {
+        **usage,
+        "cost": round(cost, 10),
+        "cost_currency": "USD",
+        "cost_source": "estimated",
+        "price_per_mtok": price,
+    }
+
+
 def decide(dimensions: dict, risks: dict, policy: dict) -> tuple[str, list[str], float]:
     quality = round(100 * sum(d["normalized"] * d["weight"] for d in dimensions.values()), 2)
     blocked = [

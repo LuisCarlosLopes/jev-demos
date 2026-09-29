@@ -1,0 +1,149 @@
+# Regras de classificação de tamanho. Edite aqui, não no código.
+version: "sizer-v1"
+
+# Campo do ADO que recebe o tamanho e ordem dos valores.
+field: Custom.SR_TAMANHO
+order: [PP, P, M, G, GG]
+
+# Faixas de confiança da resposta Choice (0-1).
+confidence:
+  firm: 0.70      # >= firm: sugestão firme
+  tentative: 0.45 # >= tentative: sugestão com alternativa; abaixo: precisa de humano
+
+# Orçamento de texto enviado ao Jev (caracteres, estimativa ~3,5 chars/token em pt-BR).
+# O limite do modelo é 32k tokens para o state; ficamos bem abaixo.
+max_state_chars: 60000
+# Quando estourar: a descrição é truncada primeiro; critérios de aceite ficam inteiros.
+description_min_chars: 2000
+
+# Modo validação: converte horas apontadas nas tasks filhas em tamanho "real".
+validation:
+  hours_per_day: 8
+  # Stories com CompletedWork abaixo desta fração do OriginalEstimate saem da referência.
+  min_completed_ratio: 0.5
+  # Limite superior em dias de cada tamanho; o último é aberto.
+  upper_days: {PP: 0.75, P: 2.5, M: 5.5, G: 10}
+
+# Tabela de esforço. key é o nome da opção que o Jev vê (em horas: nomes em letras
+# colapsavam no meio da escala). days é o ponto médio usado nos somatórios.
+sizes:
+  PP:
+    key: up_to_4h
+    label: Muito pequena
+    effort: até meio dia (até 4 h)
+    days: 0.5
+    criteria:
+      what: >-
+        Uma alteração pontual e localizada: um componente, um texto, uma configuração,
+        um ajuste de regra existente. Não cria integração, tabela ou serviço novo.
+      examples:
+        - Corrigir label ou mensagem
+        - Incluir um valor numa lista de configuração
+        - Ajustar um teste ou um script já existente
+  P:
+    key: 5_to_16h
+    label: Pequena
+    effort: 1 a 2 dias (5 a 16 h)
+    days: 1.5
+    criteria:
+      what: >-
+        Poucos critérios de aceite, todos dentro de um único sistema ou repositório,
+        sem decisão de arquitetura nem dependência externa. O caminho é conhecido.
+      examples:
+        - Novo endpoint simples reutilizando modelo existente
+        - Nova tela de listagem sobre API pronta
+        - Documento ou apresentação com escopo definido
+  M:
+    key: 17_to_40h
+    label: Média
+    effort: 3 a 5 dias (17 a 40 h)
+    days: 4
+    criteria:
+      what: >-
+        Vários critérios de aceite; integra dois ou mais componentes, exige algum desenho
+        ou decisão técnica, ou inclui validação com pessoas fora do time. Ainda cabe em
+        uma sprint com folga.
+      examples:
+        - Feature com backend + frontend + testes
+        - Integração com um serviço interno já documentado
+        - Rodada de validação com PO e ajustes decorrentes
+  G:
+    key: 41_to_80h
+    label: Grande
+    effort: 1 a 2 semanas (41 a 80 h)
+    days: 7.5
+    criteria:
+      what: >-
+        Múltiplos sistemas, infraestrutura, dados ou segurança; dependências externas
+        ao time; muitos critérios de aceite ou critérios que exigem provisionar ambientes.
+        Consome a maior parte de uma sprint de uma pessoa.
+      examples:
+        - Preparar infra em nuvem com pipelines e permissões
+        - Fundação de repositório com monorepo, banco, autorização e CI
+        - Integração com sistema externo sem contrato fechado
+  GG:
+    key: over_80h
+    label: Muito grande
+    effort: mais de 2 semanas (acima de 80 h)
+    days: 12
+    criteria:
+      what: >-
+        Escopo de feature ou épico descrito como uma única story: várias entregas
+        independentes, várias equipes ou fases, ou critérios abertos que impedem
+        estimar. Deveria ser quebrada antes de entrar na sprint.
+      examples:
+        - Construir um agente completo com várias etapas e fluxos
+        - Migração de plataforma
+        - Story cujos critérios listam mais de uma funcionalidade completa
+
+# Perguntas de apoio: explicam a decisão sem o Jev gerar texto.
+factors:
+  scope:
+    label: Escopo
+    instructions: >-
+      How many distinct deliverables do the acceptance criteria require?
+      Count independent things that must exist at the end, not bullet points.
+    criteria:
+      - One deliverable or a small change to an existing one.
+      - Two or three related deliverables in the same component.
+      - Several deliverables across components, all still part of one feature.
+      - Multiple complete features or phases packed into one story.
+  complexity:
+    label: Complexidade técnica
+    instructions: >-
+      How technically demanding is the work: infrastructure, data model changes,
+      security, external integrations, or architectural decisions?
+    criteria:
+      - Routine change on a known path; no new integration or design.
+      - Some design or one new integration with a known internal component.
+      - Infrastructure, data, security or several integrations; needs design decisions.
+      - Novel architecture, external systems without a closed contract, or platform-level work.
+  uncertainty:
+    label: Incerteza
+    instructions: >-
+      How much is still undecided or dependent on others: open questions, spikes,
+      approvals, external teams, or missing information in the story?
+    criteria:
+      - Everything needed is specified; no external dependency.
+      - Minor open points that the developer can resolve alone.
+      - Depends on another team, an approval, or a decision not yet taken.
+      - Core scope is undefined or blocked by an unresolved external dependency.
+
+flags:
+  vague_criteria:
+    label: Critérios de aceite vagos
+    instructions: >-
+      Are the acceptance criteria missing, or too vague to verify whether the story is done?
+    criteria:
+      "true": Criteria are absent, or a reviewer could not objectively tell if they were met.
+      "false": Criteria are present and verifiable, even if brief.
+    review_at: 0.60
+  should_split:
+    label: Deveria ser quebrada
+    instructions: >-
+      Does this story bundle more than one independently deliverable feature,
+      such that it should be split before entering a sprint?
+    criteria:
+      "true": Two or more independent features or phases are described as one story.
+      "false": The story describes one cohesive deliverable, however large.
+    review_at: 0.60

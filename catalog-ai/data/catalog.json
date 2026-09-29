@@ -1,0 +1,1718 @@
+[
+  {
+    "id": "vercel-labs__skills__find-skills",
+    "name": "find-skills",
+    "type": "skill",
+    "source": "vercel-labs/skills",
+    "url": "https://skills.sh/vercel-labs/skills/find-skills",
+    "install": "npx skills add vercel-labs/skills@find-skills",
+    "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 3618479,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__grill-with-docs",
+    "name": "grill-with-docs",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/grill-with-docs",
+    "install": "npx skills add mattpocock/skills@grill-with-docs",
+    "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
+    "purpose": "documentacao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 1065045,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__improve-codebase-architecture",
+    "name": "improve-codebase-architecture",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/improve-codebase-architecture",
+    "install": "npx skills add mattpocock/skills@improve-codebase-architecture",
+    "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+    "purpose": "arquitetura",
+    "technologies": [
+      "Web/CSS"
+    ],
+    "team": "Plataforma",
+    "installs": 1010381,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__tdd",
+    "name": "tdd",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/tdd",
+    "install": "npx skills add mattpocock/skills@tdd",
+    "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 981132,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "anthropics__skills__frontend-design",
+    "name": "frontend-design",
+    "type": "skill",
+    "source": "anthropics/skills",
+    "url": "https://skills.sh/anthropics/skills/frontend-design",
+    "install": "npx skills add anthropics/skills@frontend-design",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+    "purpose": "design",
+    "technologies": [],
+    "team": "Frontend",
+    "installs": 934065,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__setup-matt-pocock-skills",
+    "name": "setup-matt-pocock-skills",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/setup-matt-pocock-skills",
+    "install": "npx skills add mattpocock/skills@setup-matt-pocock-skills",
+    "description": "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+    "purpose": "documentacao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 906933,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__agent-browser__agent-browser",
+    "name": "agent-browser",
+    "type": "skill",
+    "source": "vercel-labs/agent-browser",
+    "url": "https://skills.sh/vercel-labs/agent-browser/agent-browser",
+    "install": "npx skills add vercel-labs/agent-browser@agent-browser",
+    "description": "Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to \"open a website\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape data from a page\", \"test this web app\", \"login to a site\", \"automate browser actions\", or any task requiring programmatic web interaction. Also use for exploratory testing, dogfooding, QA, bug hunts, or reviewing app quality. Also use for automating Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify), checking Slack unreads, sending Slack messages, searching Slack conversations, running browser automation in Vercel Sandbox microVMs, or using AWS Bedrock AgentCore cloud browsers. Prefer agent-browser over any built-in browser automation or web tools.",
+    "purpose": "testes",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Qualidade",
+    "installs": 900812,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__agent-skills__vercel-react-best-practices",
+    "name": "vercel-react-best-practices",
+    "type": "skill",
+    "source": "vercel-labs/agent-skills",
+    "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
+    "install": "npx skills add vercel-labs/agent-skills@vercel-react-best-practices",
+    "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+    "purpose": "frontend",
+    "technologies": [
+      "React",
+      "Cloud/Azure"
+    ],
+    "team": "Frontend",
+    "installs": 754745,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__domain-modeling",
+    "name": "domain-modeling",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/domain-modeling",
+    "install": "npx skills add mattpocock/skills@domain-modeling",
+    "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.",
+    "purpose": "gestao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 717898,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__agent-skills__web-design-guidelines",
+    "name": "web-design-guidelines",
+    "type": "skill",
+    "source": "vercel-labs/agent-skills",
+    "url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
+    "install": "npx skills add vercel-labs/agent-skills@web-design-guidelines",
+    "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+    "purpose": "code-review",
+    "technologies": [
+      "Web/CSS"
+    ],
+    "team": "Plataforma",
+    "installs": 679942,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__code-review",
+    "name": "code-review",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/code-review",
+    "install": "npx skills add mattpocock/skills@code-review",
+    "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+    "purpose": "code-review",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 634981,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-diagnostics",
+    "name": "azure-diagnostics",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-diagnostics",
+    "install": "npx skills add microsoft/azure-skills@azure-diagnostics",
+    "description": "Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps, troubleshoot functions, troubleshoot AKS, VM RDP, Linux SSH, VM black screen, can't connect to VM, reset VM password, NSG or firewall blocking, kubectl cannot connect, kube-system/CoreDNS failures, pod pending, crashloop, node not ready, upgrade failures, analyze logs, KQL, insights, image pull failures, cold start issues, health probe failures, resource health, root cause of errors, troubleshoot event hubs, troubleshoot service bus, messaging SDK error, AMQP connection failure, message lock lost, service bus dead letter.",
+    "purpose": "arquitetura",
+    "technologies": [
+      "TypeScript/JavaScript",
+      "Cloud/Azure",
+      "Docker/Kubernetes"
+    ],
+    "team": "Plataforma",
+    "installs": 610245,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-prepare",
+    "name": "azure-prepare",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-prepare",
+    "install": "npx skills add microsoft/azure-skills@azure-prepare",
+    "description": "Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file. DO NOT USE FOR: non-azd deployments, Python App Service code-only deploys (use python-appservice-deploy), or cross-cloud migration (use azure-cloud-migrate). WHEN: prepare app for azd, create azure.yaml, set up azd infrastructure, modernize app for Azure with azd, deploy with azd, function app, timer trigger, service bus trigger, event-driven function, managed identity, generate Bicep, generate Terraform, create and deploy to Azure.",
+    "purpose": "devops",
+    "technologies": [
+      "Python",
+      "Cloud/Azure",
+      "Docker/Kubernetes"
+    ],
+    "team": "DevOps",
+    "installs": 609832,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-ai",
+    "name": "azure-ai",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-ai",
+    "install": "npx skills add microsoft/azure-skills@azure-ai",
+    "description": "Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybrid search, speech-to-text, text-to-speech, transcription, OCR. WHEN: AI Search, query search, vector search, hybrid search, semantic search, speech-to-text, text-to-speech, transcribe, OCR, convert text to speech.",
+    "purpose": "devops",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "DevOps",
+    "installs": 609600,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-deploy",
+    "name": "azure-deploy",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-deploy",
+    "install": "npx skills add microsoft/azure-skills@azure-deploy",
+    "description": "Execute Azure deployments for ALREADY-PREPARED applications that have existing .azure/deployment-plan.md and infrastructure files. DO NOT use this skill when the user asks to CREATE a new application — use azure-prepare instead. This skill runs azd up, azd deploy, terraform apply, and az deployment commands with built-in error recovery. Requires .azure/deployment-plan.md from azure-prepare and validated status from azure-validate. WHEN: \"run azd up\", \"run azd deploy\", \"execute deployment\", \"push to production\", \"push to cloud\", \"go live\", \"ship it\", \"bicep deploy\", \"terraform apply\", \"publish to Azure\", \"launch on Azure\". DO NOT USE WHEN: \"create and deploy\", \"build and deploy\", \"create a new app\", \"set up infrastructure\", \"create and deploy to Azure using Terraform\" — use azure-prepare for these.",
+    "purpose": "devops",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "DevOps",
+    "installs": 609488,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-validate",
+    "name": "azure-validate",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-validate",
+    "install": "npx skills add microsoft/azure-skills@azure-validate",
+    "description": "Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and prerequisites before deploying. WHEN: validate my app, check deployment readiness, run preflight checks, verify configuration, check if ready to deploy, validate azure.yaml, validate Bicep, test before deploying, troubleshoot deployment errors, validate Azure Functions, validate function app, validate serverless deployment, verify RBAC roles, check role assignments, review managed identity permissions, what-if analysis, validate Container Apps deployment.",
+    "purpose": "devops",
+    "technologies": [
+      "Cloud/Azure",
+      "Docker/Kubernetes"
+    ],
+    "team": "DevOps",
+    "installs": 608920,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-storage",
+    "name": "azure-storage",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-storage",
+    "install": "npx skills add microsoft/azure-skills@azure-storage",
+    "description": "Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Answers questions about storage access tiers (hot, cool, cold, archive), when to use each tier, and tier comparison. Provides object storage, SMB file shares, async messaging, NoSQL key-value, and big data analytics. Includes lifecycle management. USE FOR: blob storage, file shares, queue storage, table storage, data lake, upload files, download blobs, storage accounts, access tiers, storage tiers, hot cool cold archive, storage tier comparison, when to use storage tiers, lifecycle management, Azure Storage concepts. DO NOT USE FOR: SQL databases, Cosmos DB (use azure-prepare), messaging with Event Hubs or Service Bus (use azure-messaging).",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos",
+      "Cloud/Azure"
+    ],
+    "team": "Dados & IA",
+    "installs": 608380,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-compliance",
+    "name": "azure-compliance",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-compliance",
+    "install": "npx skills add microsoft/azure-skills@azure-compliance",
+    "description": "Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks. WHEN: compliance scan, security audit, BEFORE running azqr (compliance cli tool), Azure best practices, Key Vault expiration check, expired certificates, expiring secrets, orphaned resources, compliance assessment.",
+    "purpose": "seguranca",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Plataforma",
+    "installs": 607953,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-aigateway",
+    "name": "azure-aigateway",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-aigateway",
+    "install": "npx skills add microsoft/azure-skills@azure-aigateway",
+    "description": "Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, MCP rate limiting, jailbreak detection, add Azure OpenAI backend, add AI Foundry model, test AI gateway, LLM policies, configure AI backend, token metrics, AI cost control, convert API to MCP, import OpenAPI to gateway.",
+    "purpose": "backend",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Backend",
+    "installs": 607530,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__entra-app-registration",
+    "name": "entra-app-registration",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/entra-app-registration",
+    "install": "npx skills add microsoft/azure-skills@entra-app-registration",
+    "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.",
+    "purpose": "seguranca",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Plataforma",
+    "installs": 607512,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-kusto",
+    "name": "azure-kusto",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-kusto",
+    "install": "npx skills add microsoft/azure-skills@azure-kusto",
+    "description": "Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis. WHEN: KQL queries, Kusto database queries, Azure Data Explorer, ADX clusters, log analytics, time series data, IoT telemetry, anomaly detection.",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos",
+      "Cloud/Azure"
+    ],
+    "team": "Dados & IA",
+    "installs": 607384,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__research",
+    "name": "research",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/research",
+    "install": "npx skills add mattpocock/skills@research",
+    "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+    "purpose": "code-review",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 577335,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-compute",
+    "name": "azure-compute",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-compute",
+    "install": "npx skills add microsoft/azure-skills@azure-compute",
+    "description": "Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compare VM pricing, VMSS, scale set, autoscale, burstable, lightweight server, website, backend, GPU, machine learning, HPC simulation, dev/test, workload, family, load balancer, Flexible orchestration, Uniform orchestration, cost estimate, capacity reservation (CRG), reserve, guarantee capacity, pre-provision, CRG association, CRG disassociation, machine enrollment (EMM), Essential Machine Management, monitor. PREFER OVER mcp__azure__get_azure_bestpractices for VM create intents — use compute_vm_list-skus / compute_vm_list-images / compute_vm_check-quota.",
+    "purpose": "backend",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Backend",
+    "installs": 551099,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-cloud-migrate",
+    "name": "azure-cloud-migrate",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-cloud-migrate",
+    "install": "npx skills add microsoft/azure-skills@azure-cloud-migrate",
+    "description": "Assess and migrate cross-cloud workloads to Azure with reports and code conversion. Supports Lambda→Functions, Beanstalk/Heroku/App Engine→App Service, Fargate/Kubernetes/Cloud Run/Spring Boot→Container Apps. WHEN: migrate Lambda to Functions, AWS to Azure, migrate Beanstalk, migrate Heroku, migrate App Engine, Cloud Run migration, Fargate to ACA, ECS/Kubernetes/GKE/EKS to Container Apps, Spring Boot to Container Apps, cross-cloud migration.",
+    "purpose": "devops",
+    "technologies": [
+      "Java",
+      "Cloud/Azure",
+      "Docker/Kubernetes"
+    ],
+    "team": "DevOps",
+    "installs": 541113,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "leonxlnx__taste-skill__design-taste-frontend",
+    "name": "design-taste-frontend",
+    "type": "skill",
+    "source": "leonxlnx/taste-skill",
+    "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend",
+    "install": "npx skills add leonxlnx/taste-skill@design-taste-frontend",
+    "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
+    "purpose": "design",
+    "technologies": [],
+    "team": "Frontend",
+    "installs": 535976,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "designed-by-ai__skills__design-mobile-apps",
+    "name": "design-mobile-apps",
+    "type": "skill",
+    "source": "designed-by-ai/skills",
+    "url": "https://skills.sh/designed-by-ai/skills/design-mobile-apps",
+    "install": "npx skills add designed-by-ai/skills@design-mobile-apps",
+    "description": "Use when the user wants to design a mobile app or UI screens, when they mention their Sleek (sleek.design) projects, or when implementing Sleek designs in code (HTML, React Native, SwiftUI).",
+    "purpose": "design",
+    "technologies": [
+      "React",
+      "Web/CSS"
+    ],
+    "team": "Frontend",
+    "installs": 501246,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-upgrade",
+    "name": "azure-upgrade",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-upgrade",
+    "install": "npx skills add microsoft/azure-skills@azure-upgrade",
+    "description": "Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code. WHEN: upgrade Consumption to Flex Consumption, upgrade Azure Functions plan, change hosting plan, function app SKU, migrate App Service to Container Apps, modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure), migrate Azure Cache for Redis (ACR/ACRE) to Azure Managed Redis (AMR).",
+    "purpose": "devops",
+    "technologies": [
+      "Java",
+      "Cloud/Azure",
+      "Docker/Kubernetes"
+    ],
+    "team": "DevOps",
+    "installs": 469279,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "lllllllama__rigorpilot-skills__paper-context-resolver",
+    "name": "paper-context-resolver",
+    "type": "skill",
+    "source": "lllllllama/rigorpilot-skills",
+    "url": "https://skills.sh/lllllllama/rigorpilot-skills/paper-context-resolver",
+    "install": "npx skills add lllllllama/rigorpilot-skills@paper-context-resolver",
+    "description": "Rigor Paper Context helper for README-first deep learning repo reproduction. Use only when the README and repository files leave a narrow reproduction-critical gap and the task is to resolve a specific paper detail such as dataset split, preprocessing, evaluation protocol, checkpoint mapping, or runtime assumption from primary paper sources while recording conflicts. Do not use for general paper summary, repo scanning, environment setup, command execution, title-only paper lookup, or replacing README guidance by default.",
+    "purpose": "documentacao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 450976,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-enterprise-infra-planner",
+    "name": "azure-enterprise-infra-planner",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-enterprise-infra-planner",
+    "install": "npx skills add microsoft/azure-skills@azure-enterprise-infra-planner",
+    "description": "Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with WAF alignment. Generates Bicep or Terraform directly (no azd). WHEN: 'plan Azure infrastructure', 'architect Azure landing zone', 'design hub-spoke network', 'plan multi-region DR topology', 'set up VNets firewalls and private endpoints', 'subscription-scope Bicep deployment', 'Azure Backup for VM workloads'. PREFER azure-prepare FOR app-centric workflows.",
+    "purpose": "devops",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "DevOps",
+    "installs": 443820,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "supabase__agent-skills__supabase-postgres-best-practices",
+    "name": "supabase-postgres-best-practices",
+    "type": "skill",
+    "source": "supabase/agent-skills",
+    "url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
+    "install": "npx skills add supabase/agent-skills@supabase-postgres-best-practices",
+    "description": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 421815,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__git-guardrails-claude-code",
+    "name": "git-guardrails-claude-code",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/git-guardrails-claude-code",
+    "install": "npx skills add mattpocock/skills@git-guardrails-claude-code",
+    "description": "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.",
+    "purpose": "agentes-ia",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Dados & IA",
+    "installs": 409914,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__azure-skills__azure-cost",
+    "name": "azure-cost",
+    "type": "skill",
+    "source": "microsoft/azure-skills",
+    "url": "https://skills.sh/microsoft/azure-skills/azure-cost",
+    "install": "npx skills add microsoft/azure-skills@azure-cost",
+    "description": "Azure cost management: query costs, forecast spending, optimize to reduce waste. WHEN: \"Azure costs\", \"Azure bill\", \"cost breakdown\", \"how much am I spending\", \"forecast spending\", \"optimize costs\", \"reduce spending\", \"orphaned resources\", \"rightsize VMs\", \"cost spike\", \"reduce storage costs\", \"AKS cost\". DO NOT USE FOR: deploying resources, provisioning, diagnostics, or security audits.",
+    "purpose": "seguranca",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Plataforma",
+    "installs": 407899,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mattpocock__skills__writing-beats",
+    "name": "writing-beats",
+    "type": "skill",
+    "source": "mattpocock/skills",
+    "url": "https://skills.sh/mattpocock/skills/writing-beats",
+    "install": "npx skills add mattpocock/skills@writing-beats",
+    "description": "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+    "purpose": "documentacao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 396004,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "anthropics__skills__skill-creator",
+    "name": "skill-creator",
+    "type": "skill",
+    "source": "anthropics/skills",
+    "url": "https://skills.sh/anthropics/skills/skill-creator",
+    "install": "npx skills add anthropics/skills@skill-creator",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 393439,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "nextlevelbuilder__ui-ux-pro-max-skill__ui-ux-pro-max",
+    "name": "ui-ux-pro-max",
+    "type": "skill",
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max",
+    "install": "npx skills add nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max",
+    "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
+    "purpose": "design",
+    "technologies": [
+      "Web/CSS"
+    ],
+    "team": "Frontend",
+    "installs": 375059,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "prisma__skills__prisma-database-setup",
+    "name": "prisma-database-setup",
+    "type": "skill",
+    "source": "prisma/skills",
+    "url": "https://skills.sh/prisma/skills/prisma-database-setup",
+    "install": "npx skills add prisma/skills@prisma-database-setup",
+    "description": "Guides for configuring Prisma with different database providers (PostgreSQL, MySQL, SQLite, MongoDB, etc.). Use when setting up a new project, changing databases, or troubleshooting connection issues. Triggers on \"configure postgres\", \"connect to mysql\", \"setup mongodb\", \"sqlite setup\".",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 321701,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "prisma__skills__prisma-client-api",
+    "name": "prisma-client-api",
+    "type": "skill",
+    "source": "prisma/skills",
+    "url": "https://skills.sh/prisma/skills/prisma-client-api",
+    "install": "npx skills add prisma/skills@prisma-client-api",
+    "description": "Prisma Client API reference covering model queries, filters, operators, and client methods. Use when writing database queries, using CRUD operations, filtering data, or configuring Prisma Client. Triggers on \"prisma query\", \"findMany\", \"create\", \"update\", \"delete\", \"$transaction\".",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 321367,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "prisma__skills__prisma-postgres",
+    "name": "prisma-postgres",
+    "type": "skill",
+    "source": "prisma/skills",
+    "url": "https://skills.sh/prisma/skills/prisma-postgres",
+    "install": "npx skills add prisma/skills@prisma-postgres",
+    "description": "Prisma Postgres setup and operations guidance across Console, create-db CLI, Management API, and Management API SDK. Use when creating Prisma Postgres databases, working in Prisma Console, provisioning with create-db/create-pg/create-postgres, or integrating programmatic provisioning with service tokens or OAuth.",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 314341,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "prisma__skills__prisma-driver-adapter-implementation",
+    "name": "prisma-driver-adapter-implementation",
+    "type": "skill",
+    "source": "prisma/skills",
+    "url": "https://skills.sh/prisma/skills/prisma-driver-adapter-implementation",
+    "install": "npx skills add prisma/skills@prisma-driver-adapter-implementation",
+    "description": "Required reference for Prisma ORM 7 SQL driver adapter work. Use when implementing or modifying adapters, adding database drivers, or touching SqlDriverAdapter, Transaction, savepoint, result mapping, or DriverAdapterError behavior. Covers current transaction lifecycle, optional savepoint hooks, original database-error preservation, and verification.",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 309336,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "prisma__skills__prisma-postgres-setup",
+    "name": "prisma-postgres-setup",
+    "type": "skill",
+    "source": "prisma/skills",
+    "url": "https://skills.sh/prisma/skills/prisma-postgres-setup",
+    "install": "npx skills add prisma/skills@prisma-postgres-setup",
+    "description": "Set up a new Prisma Postgres database and connect it to a local project using the Management API. Use when asked to \"set up a database\", \"create a Prisma Postgres project\", \"get a connection string\", \"connect my app to Prisma Postgres\", or \"provision a database\".",
+    "purpose": "dados",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Dados & IA",
+    "installs": 308654,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "obra__superpowers__systematic-debugging",
+    "name": "systematic-debugging",
+    "type": "skill",
+    "source": "obra/superpowers",
+    "url": "https://skills.sh/obra/superpowers/systematic-debugging",
+    "install": "npx skills add obra/superpowers@systematic-debugging",
+    "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 274973,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "leonxlnx__taste-skill__design-taste-frontend-v1",
+    "name": "design-taste-frontend-v1",
+    "type": "skill",
+    "source": "leonxlnx/taste-skill",
+    "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend-v1",
+    "install": "npx skills add leonxlnx/taste-skill@design-taste-frontend-v1",
+    "description": "The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2 experimental), which is a substantial rewrite. Use this v1 install name only if you need exact backward compatibility.",
+    "purpose": "frontend",
+    "technologies": [],
+    "team": "Frontend",
+    "installs": 271672,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "obra__superpowers__requesting-code-review",
+    "name": "requesting-code-review",
+    "type": "skill",
+    "source": "obra/superpowers",
+    "url": "https://skills.sh/obra/superpowers/requesting-code-review",
+    "install": "npx skills add obra/superpowers@requesting-code-review",
+    "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+    "purpose": "gestao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 241128,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "obra__superpowers__receiving-code-review",
+    "name": "receiving-code-review",
+    "type": "skill",
+    "source": "obra/superpowers",
+    "url": "https://skills.sh/obra/superpowers/receiving-code-review",
+    "install": "npx skills add obra/superpowers@receiving-code-review",
+    "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+    "purpose": "code-review",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 204552,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "microsoft__playwright-cli__playwright-cli",
+    "name": "playwright-cli",
+    "type": "skill",
+    "source": "microsoft/playwright-cli",
+    "url": "https://skills.sh/microsoft/playwright-cli/playwright-cli",
+    "install": "npx skills add microsoft/playwright-cli@playwright-cli",
+    "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+    "purpose": "testes",
+    "technologies": [],
+    "team": "Qualidade",
+    "installs": 168772,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "anthropics__skills__webapp-testing",
+    "name": "webapp-testing",
+    "type": "skill",
+    "source": "anthropics/skills",
+    "url": "https://skills.sh/anthropics/skills/webapp-testing",
+    "install": "npx skills add anthropics/skills@webapp-testing",
+    "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+    "purpose": "testes",
+    "technologies": [],
+    "team": "Qualidade",
+    "installs": 166630,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__agent-skills__vercel-react-view-transitions",
+    "name": "vercel-react-view-transitions",
+    "type": "skill",
+    "source": "vercel-labs/agent-skills",
+    "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
+    "install": "npx skills add vercel-labs/agent-skills@vercel-react-view-transitions",
+    "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
+    "purpose": "frontend",
+    "technologies": [
+      "React",
+      "Cloud/Azure",
+      "Web/CSS"
+    ],
+    "team": "Frontend",
+    "installs": 137070,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "firebase__agent-skills__firebase-security-rules-auditor",
+    "name": "firebase-security-rules-auditor",
+    "type": "skill",
+    "source": "firebase/agent-skills",
+    "url": "https://skills.sh/firebase/agent-skills/firebase-security-rules-auditor",
+    "install": "npx skills add firebase/agent-skills@firebase-security-rules-auditor",
+    "description": "Audits Firebase (Firestore, Cloud Storage) security rules for vulnerabilities, privilege escalation, role bypasses, create vs update inconsistencies, resource exhaustion, type safety, size limits, and hasOnly ownership checks. Use when auditing/reviewing rules, running red-team rule assessments, or scoring against auditor checklists. Don't use for Firebase CLI (login, deploy), Auth, Crashlytics, Remote Config, or database queries.",
+    "purpose": "seguranca",
+    "technologies": [
+      "SQL/Bancos"
+    ],
+    "team": "Plataforma",
+    "installs": 124288,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "firebase__agent-skills__xcode-project-setup",
+    "name": "xcode-project-setup",
+    "type": "skill",
+    "source": "firebase/agent-skills",
+    "url": "https://skills.sh/firebase/agent-skills/xcode-project-setup",
+    "install": "npx skills add firebase/agent-skills@xcode-project-setup",
+    "description": "Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill whenever an iOS project needs dependencies installed (e.g. Firebase, Alamofire).",
+    "purpose": "gestao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 117061,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__agent-skills__writing-guidelines",
+    "name": "writing-guidelines",
+    "type": "skill",
+    "source": "vercel-labs/agent-skills",
+    "url": "https://skills.sh/vercel-labs/agent-skills/writing-guidelines",
+    "install": "npx skills add vercel-labs/agent-skills@writing-guidelines",
+    "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
+    "purpose": "testes",
+    "technologies": [],
+    "team": "Qualidade",
+    "installs": 79639,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "liarjsdev__liarjs-skills__fingerprint-ci-gate",
+    "name": "fingerprint-ci-gate",
+    "type": "skill",
+    "source": "liarjsdev/liarjs-skills",
+    "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-ci-gate",
+    "install": "npx skills add liarjsdev/liarjs-skills@fingerprint-ci-gate",
+    "description": "Gate a build on browser fingerprint regressions with liarjs - save a baseline scan as JSON, diff later runs against it, and fail the job when the consistency score falls below a floor. Use when asked to add a fingerprint or headless-detection check to GitHub Actions, GitLab CI or another pipeline, to catch a regression in a Chromium build or scraping harness before it ships, or to track how a fingerprint score changes across commits.",
+    "purpose": "devops",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "DevOps",
+    "installs": 69891,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "pbakaus__impeccable__frontend-design",
+    "name": "frontend-design",
+    "type": "skill",
+    "source": "pbakaus/impeccable",
+    "url": "https://skills.sh/pbakaus/impeccable/frontend-design",
+    "install": "npx skills add pbakaus/impeccable@frontend-design",
+    "description": "frontend-design — an installable skill for AI agents.",
+    "purpose": "frontend",
+    "technologies": [],
+    "team": "Frontend",
+    "installs": 54575,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "addyosmani__agent-skills__code-review-and-quality",
+    "name": "code-review-and-quality",
+    "type": "skill",
+    "source": "addyosmani/agent-skills",
+    "url": "https://skills.sh/addyosmani/agent-skills/code-review-and-quality",
+    "install": "npx skills add addyosmani/agent-skills@code-review-and-quality",
+    "description": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline.",
+    "purpose": "code-review",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 51704,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "google-labs-code__stitch-skills__reactcomponents",
+    "name": "react:components",
+    "type": "skill",
+    "source": "google-labs-code/stitch-skills",
+    "url": "https://skills.sh/google-labs-code/stitch-skills/reactcomponents",
+    "install": "npx skills add google-labs-code/stitch-skills@reactcomponents",
+    "description": "Converts Stitch designs into modular Vite and React components using system-level networking and AST-based validation.",
+    "purpose": "frontend",
+    "technologies": [
+      "React",
+      "TypeScript/JavaScript"
+    ],
+    "team": "Frontend",
+    "installs": 50725,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "clerk__skills__clerk-nextjs-patterns",
+    "name": "clerk-nextjs-patterns",
+    "type": "skill",
+    "source": "clerk/skills",
+    "url": "https://skills.sh/clerk/skills/clerk-nextjs-patterns",
+    "install": "npx skills add clerk/skills@clerk-nextjs-patterns",
+    "description": "Advanced Next.js patterns - middleware, Server Actions, caching with Clerk.",
+    "purpose": "frontend",
+    "technologies": [
+      "React"
+    ],
+    "team": "Frontend",
+    "installs": 47880,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__git-commit",
+    "name": "git-commit",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/git-commit",
+    "install": "npx skills add github/awesome-copilot@git-commit",
+    "description": "Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions \"/commit\". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping",
+    "purpose": "produtividade",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 46013,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "addyosmani__agent-skills__debugging-and-error-recovery",
+    "name": "debugging-and-error-recovery",
+    "type": "skill",
+    "source": "addyosmani/agent-skills",
+    "url": "https://skills.sh/addyosmani/agent-skills/debugging-and-error-recovery",
+    "install": "npx skills add addyosmani/agent-skills@debugging-and-error-recovery",
+    "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why — a systematic approach to finding and fixing the root cause rather than guessing.",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 43734,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshobson__agents__python-performance-optimization",
+    "name": "python-performance-optimization",
+    "type": "skill",
+    "source": "wshobson/agents",
+    "url": "https://skills.sh/wshobson/agents/python-performance-optimization",
+    "install": "npx skills add wshobson/agents@python-performance-optimization",
+    "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
+    "purpose": "arquitetura",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Plataforma",
+    "installs": 33861,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshobson__agents__python-testing-patterns",
+    "name": "python-testing-patterns",
+    "type": "skill",
+    "source": "wshobson/agents",
+    "url": "https://skills.sh/wshobson/agents/python-testing-patterns",
+    "install": "npx skills add wshobson/agents@python-testing-patterns",
+    "description": "Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use when writing Python tests, setting up test suites, or implementing testing best practices.",
+    "purpose": "testes",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Qualidade",
+    "installs": 33764,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshobson__agents__nextjs-app-router-patterns",
+    "name": "nextjs-app-router-patterns",
+    "type": "skill",
+    "source": "wshobson/agents",
+    "url": "https://skills.sh/wshobson/agents/nextjs-app-router-patterns",
+    "install": "npx skills add wshobson/agents@nextjs-app-router-patterns",
+    "description": "Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when building Next.js applications, implementing SSR/SSG, or optimizing React Server Components.",
+    "purpose": "frontend",
+    "technologies": [
+      "React"
+    ],
+    "team": "Frontend",
+    "installs": 31035,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshobson__agents__code-review-excellence",
+    "name": "code-review-excellence",
+    "type": "skill",
+    "source": "wshobson/agents",
+    "url": "https://skills.sh/wshobson/agents/code-review-excellence",
+    "install": "npx skills add wshobson/agents@code-review-excellence",
+    "description": "Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull requests, establishing review standards, or mentoring developers.",
+    "purpose": "code-review",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 29073,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "firebase__agent-skills__firestore-security-rules-auditor",
+    "name": "firestore-security-rules-auditor",
+    "type": "skill",
+    "source": "firebase/agent-skills",
+    "url": "https://skills.sh/firebase/agent-skills/firestore-security-rules-auditor",
+    "install": "npx skills add firebase/agent-skills@firestore-security-rules-auditor",
+    "description": "A skill to evaluate how secure Firestore security rules are. Use this when Firestore security rules are updated to ensure that the generated rules are extremely secure and robust.",
+    "purpose": "seguranca",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 20415,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "cloudflare__skills__nextjs-on-cloudflare",
+    "name": "nextjs-on-cloudflare",
+    "type": "skill",
+    "source": "cloudflare/skills",
+    "url": "https://skills.sh/cloudflare/skills/nextjs-on-cloudflare",
+    "install": "npx skills add cloudflare/skills@nextjs-on-cloudflare",
+    "description": "Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a Next.js project on Cloudflare, moving an existing app to Workers, choosing between vinext and OpenNext, or setting up vinext for Workers. For setup, migration, or deployment, install vinext's upstream skills with `npx skills add cloudflare/vinext` if missing, then read and follow the applicable skill and docs.",
+    "purpose": "frontend",
+    "technologies": [
+      "React",
+      "Cloud/Azure"
+    ],
+    "team": "Frontend",
+    "installs": 19730,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "clerk__skills__clerk-react-patterns",
+    "name": "clerk-react-patterns",
+    "type": "skill",
+    "source": "clerk/skills",
+    "url": "https://skills.sh/clerk/skills/clerk-react-patterns",
+    "install": "npx skills add clerk/skills@clerk-react-patterns",
+    "description": "React SPA auth patterns with @clerk/react for Vite/CRA - ClerkProvider setup, useAuth/useUser/useClerk hooks, React Router protected routes, custom sign-in flows. Triggers on: Vite Clerk setup, React Router auth, useAuth hook, protected route, custom sign-in form React.",
+    "purpose": "frontend",
+    "technologies": [
+      "React",
+      "TypeScript/JavaScript"
+    ],
+    "team": "Frontend",
+    "installs": 18097,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel__components.build__building-components",
+    "name": "building-components",
+    "type": "skill",
+    "source": "vercel/components.build",
+    "url": "https://skills.sh/vercel/components.build/building-components",
+    "install": "npx skills add vercel/components.build@building-components",
+    "description": "Guide for building modern, accessible, and composable UI components. Use when building new components, implementing accessibility, creating composable APIs, setting up design tokens, publishing to npm/registry, or writing component documentation.",
+    "purpose": "frontend",
+    "technologies": [
+      "TypeScript/JavaScript",
+      "Web/CSS"
+    ],
+    "team": "Frontend",
+    "installs": 13680,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vercel-labs__json-render__react",
+    "name": "react",
+    "type": "skill",
+    "source": "vercel-labs/json-render",
+    "url": "https://skills.sh/vercel-labs/json-render/react",
+    "install": "npx skills add vercel-labs/json-render@react",
+    "description": "React renderer for json-render that turns JSON specs into React components. Use when working with @json-render/react, building React UIs from JSON, creating component catalogs, or rendering AI-generated specs.",
+    "purpose": "frontend",
+    "technologies": [
+      "React"
+    ],
+    "team": "Frontend",
+    "installs": 12264,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__typescript-mcp-server-generator",
+    "name": "typescript-mcp-server-generator",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator",
+    "install": "npx skills add github/awesome-copilot@typescript-mcp-server-generator",
+    "description": "Generate a complete MCP server project in TypeScript using the MCP TypeScript SDK v2 (@modelcontextprotocol/server) with tools, resources, and proper configuration",
+    "purpose": "agentes-ia",
+    "technologies": [
+      "TypeScript/JavaScript"
+    ],
+    "team": "Dados & IA",
+    "installs": 12097,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "affaan-m__ecc__tdd-workflow",
+    "name": "tdd-workflow",
+    "type": "skill",
+    "source": "affaan-m/ecc",
+    "url": "https://skills.sh/affaan-m/ecc/tdd-workflow",
+    "install": "npx skills add affaan-m/ecc@tdd-workflow",
+    "description": "Test-driven development workflow: write a failing test first, watch it fail, implement the smallest change to green, then refactor with 80%+ coverage across unit, integration, and E2E tests. Use when writing a new feature, fixing a bug, refactoring, or when told to write failing tests first.",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 11405,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__python-mcp-server-generator",
+    "name": "python-mcp-server-generator",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/python-mcp-server-generator",
+    "install": "npx skills add github/awesome-copilot@python-mcp-server-generator",
+    "description": "Generate a complete MCP server project in Python with tools, resources, and proper configuration",
+    "purpose": "backend",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Backend",
+    "installs": 10441,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__ai-prompt-engineering-safety-review",
+    "name": "ai-prompt-engineering-safety-review",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/ai-prompt-engineering-safety-review",
+    "install": "npx skills add github/awesome-copilot@ai-prompt-engineering-safety-review",
+    "description": "Comprehensive AI prompt engineering safety review and improvement prompt. Analyzes prompts for safety, bias, security vulnerabilities, and effectiveness while providing detailed improvement recommendations with extensive frameworks, testing methodologies, and educational content.",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 10329,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "affaan-m__ecc__springboot-tdd",
+    "name": "springboot-tdd",
+    "type": "skill",
+    "source": "affaan-m/ecc",
+    "url": "https://skills.sh/affaan-m/ecc/springboot-tdd",
+    "install": "npx skills add affaan-m/ecc@springboot-tdd",
+    "description": "Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.",
+    "purpose": "arquitetura",
+    "technologies": [
+      "Java",
+      "Docker/Kubernetes"
+    ],
+    "team": "Plataforma",
+    "installs": 10136,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "affaan-m__ecc__django-tdd",
+    "name": "django-tdd",
+    "type": "skill",
+    "source": "affaan-m/ecc",
+    "url": "https://skills.sh/affaan-m/ecc/django-tdd",
+    "install": "npx skills add affaan-m/ecc@django-tdd",
+    "description": "Django testing strategies with pytest-django, TDD methodology, factory_boy, mocking, coverage, and testing Django REST Framework APIs. Use when writing Django or DRF tests with pytest-django, or driving a Django feature test-first.",
+    "purpose": "testes",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Qualidade",
+    "installs": 10128,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__dataverse-python-production-code",
+    "name": "dataverse-python-production-code",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/dataverse-python-production-code",
+    "install": "npx skills add github/awesome-copilot@dataverse-python-production-code",
+    "description": "Generate production-ready Python code using Dataverse SDK with error handling, optimization, and best practices",
+    "purpose": "backend",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Backend",
+    "installs": 9885,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__readme-blueprint-generator",
+    "name": "readme-blueprint-generator",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/readme-blueprint-generator",
+    "install": "npx skills add github/awesome-copilot@readme-blueprint-generator",
+    "description": "Intelligent README.md generation prompt that analyzes project documentation structure and creates comprehensive repository documentation. Scans .github/copilot directory files and copilot-instructions.md to extract project information, technology stack, architecture, development workflow, coding standards, and testing approaches while generating well-structured markdown documentation with proper formatting, cross-references, and developer-focused content.",
+    "purpose": "documentacao",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Produto",
+    "installs": 9684,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__breakdown-plan",
+    "name": "breakdown-plan",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/breakdown-plan",
+    "install": "npx skills add github/awesome-copilot@breakdown-plan",
+    "description": "Issue Planning and Automation prompt that generates comprehensive project plans with Epic > Feature > Story/Enabler > Test hierarchy, dependencies, priorities, and automated tracking.",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 9375,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "affaan-m__ecc__nextjs-turbopack",
+    "name": "nextjs-turbopack",
+    "type": "skill",
+    "source": "affaan-m/ecc",
+    "url": "https://skills.sh/affaan-m/ecc/nextjs-turbopack",
+    "install": "npx skills add affaan-m/ecc@nextjs-turbopack",
+    "description": "Next.js 16+ and Turbopack guidance — incremental Rust bundling, file-system caching, faster dev startup and HMR, Turbopack vs webpack tradeoffs, and the middleware.ts to proxy.ts filename change. Use when developing or debugging Next.js 16+ apps, diagnosing slow dev startup or hot reload, choosing between bundlers, or reviewing middleware/proxy file naming.",
+    "purpose": "frontend",
+    "technologies": [
+      "React"
+    ],
+    "team": "Frontend",
+    "installs": 9339,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "callstackincubator__agent-skills__github-actions",
+    "name": "github-actions",
+    "type": "skill",
+    "source": "callstackincubator/agent-skills",
+    "url": "https://skills.sh/callstackincubator/agent-skills/github-actions",
+    "install": "npx skills add callstackincubator/agent-skills@github-actions",
+    "description": "GitHub Actions workflow patterns for React Native iOS simulator and Android emulator cloud builds with downloadable artifacts. Use when setting up CI build pipelines or downloading GitHub Actions artifacts via gh CLI and GitHub API.",
+    "purpose": "devops",
+    "technologies": [
+      "React",
+      "Git/GitHub"
+    ],
+    "team": "DevOps",
+    "installs": 9307,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__rust-mcp-server-generator",
+    "name": "rust-mcp-server-generator",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/rust-mcp-server-generator",
+    "install": "npx skills add github/awesome-copilot@rust-mcp-server-generator",
+    "description": "Generate a complete Rust Model Context Protocol server project with tools, prompts, resources, and tests using the official rmcp SDK",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 9237,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__go-mcp-server-generator",
+    "name": "go-mcp-server-generator",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/go-mcp-server-generator",
+    "install": "npx skills add github/awesome-copilot@go-mcp-server-generator",
+    "description": "Generate a complete Go MCP server project with proper structure, dependencies, and implementation using the official github.com/modelcontextprotocol/go-sdk.",
+    "purpose": "agentes-ia",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Dados & IA",
+    "installs": 9191,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__breakdown-epic-arch",
+    "name": "breakdown-epic-arch",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/breakdown-epic-arch",
+    "install": "npx skills add github/awesome-copilot@breakdown-epic-arch",
+    "description": "Prompt for creating the high-level technical architecture for an Epic, based on a Product Requirements Document.",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 9052,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__dataverse-python-quickstart",
+    "name": "dataverse-python-quickstart",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/dataverse-python-quickstart",
+    "install": "npx skills add github/awesome-copilot@dataverse-python-quickstart",
+    "description": "Generate Python SDK setup + CRUD + bulk + paging snippets using official patterns.",
+    "purpose": "backend",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Backend",
+    "installs": 8828,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "starchild-ai-agent__official-skills__skill-creator",
+    "name": "skill-creator",
+    "type": "skill",
+    "source": "starchild-ai-agent/official-skills",
+    "url": "https://skills.sh/starchild-ai-agent/official-skills/skill-creator",
+    "install": "npx skills add starchild-ai-agent/official-skills@skill-creator",
+    "description": "Scaffold new skills with valid frontmatter, directory layout, and a starter SKILL.md. Use when building a new reusable workflow or wrapping a new API (e.g. create a kalshi skill, scaffold an API helper, start a charting skill).",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 7753,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__datanalysis-credit-risk",
+    "name": "datanalysis-credit-risk",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/datanalysis-credit-risk",
+    "install": "npx skills add github/awesome-copilot@datanalysis-credit-risk",
+    "description": "Credit risk data cleaning and variable screening pipeline for pre-loan modeling. Use when working with raw credit data that needs quality assessment, missing value analysis, or variable selection before modeling. it covers data loading and formatting, abnormal period filtering, missing rate calculation, high-missing variable removal,low-IV variable filtering, high-PSI variable removal, Null Importance denoising, high-correlation variable removal, and cleaning report generation. Applicable scenarios arecredit risk data cleaning, variable screening, pre-loan modeling preprocessing.",
+    "purpose": "devops",
+    "technologies": [],
+    "team": "DevOps",
+    "installs": 7399,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "sickn33__agentic-awesome-skills__nextjs-best-practices",
+    "name": "nextjs-best-practices",
+    "type": "skill",
+    "source": "sickn33/agentic-awesome-skills",
+    "url": "https://skills.sh/sickn33/agentic-awesome-skills/nextjs-best-practices",
+    "install": "npx skills add sickn33/agentic-awesome-skills@nextjs-best-practices",
+    "description": "Next.js App Router principles. Server Components, data fetching, routing patterns.",
+    "purpose": "frontend",
+    "technologies": [
+      "React"
+    ],
+    "team": "Frontend",
+    "installs": 7214,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "claude-office-skills__skills__data-analysis",
+    "name": "data-analysis",
+    "type": "skill",
+    "source": "claude-office-skills/skills",
+    "url": "https://skills.sh/claude-office-skills/skills/data-analysis",
+    "install": "npx skills add claude-office-skills/skills@data-analysis",
+    "description": "Analyze spreadsheet data, generate insights, create visualizations, and build reports from Excel/CSV data.",
+    "purpose": "dados",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 7195,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "vinvcn__mattpocock-skills-zh-cn__tdd",
+    "name": "tdd",
+    "type": "skill",
+    "source": "vinvcn/mattpocock-skills-zh-cn",
+    "url": "https://skills.sh/vinvcn/mattpocock-skills-zh-cn/tdd",
+    "install": "npx skills add vinvcn/mattpocock-skills-zh-cn@tdd",
+    "description": "测试驱动开发。适用于用户想用先写测试的方式构建功能或修复缺陷、提到 “red-green-refactor”，或需要集成测试时。",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 5389,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "zc277584121__mygitplugin__git-commit-push",
+    "name": "git-commit-push",
+    "type": "skill",
+    "source": "zc277584121/mygitplugin",
+    "url": "https://skills.sh/zc277584121/mygitplugin/git-commit-push",
+    "install": "npx skills add zc277584121/mygitplugin@git-commit-push",
+    "description": "Commit changes and push to origin without creating a PR",
+    "purpose": "produtividade",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 3208,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "zc277584121__mygitplugin__git-commit-pr",
+    "name": "git-commit-pr",
+    "type": "skill",
+    "source": "zc277584121/mygitplugin",
+    "url": "https://skills.sh/zc277584121/mygitplugin/git-commit-pr",
+    "install": "npx skills add zc277584121/mygitplugin@git-commit-pr",
+    "description": "Commit changes and create a pull request to the official upstream repo",
+    "purpose": "produtividade",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 3184,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "bobmatnyc__claude-mpm-skills__playwright-e2e-testing",
+    "name": "playwright-e2e-testing",
+    "type": "skill",
+    "source": "bobmatnyc/claude-mpm-skills",
+    "url": "https://skills.sh/bobmatnyc/claude-mpm-skills/playwright-e2e-testing",
+    "install": "npx skills add bobmatnyc/claude-mpm-skills@playwright-e2e-testing",
+    "description": "Playwright modern end-to-end testing framework with cross-browser automation, auto-wait, and built-in test runner",
+    "purpose": "testes",
+    "technologies": [],
+    "team": "Qualidade",
+    "installs": 2756,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mhagrelius__dotfiles__dotnet-10-csharp-14",
+    "name": "dotnet-10-csharp-14",
+    "type": "skill",
+    "source": "mhagrelius/dotfiles",
+    "url": "https://skills.sh/mhagrelius/dotfiles/dotnet-10-csharp-14",
+    "install": "npx skills add mhagrelius/dotfiles@dotnet-10-csharp-14",
+    "description": "Use when building .NET 10 or C# 14 applications; when using minimal APIs, modular monolith patterns, or feature folders; when implementing HTTP resilience, Options pattern, Channels, or validation; when seeing outdated patterns like old extension method syntax",
+    "purpose": "backend",
+    "technologies": [
+      "C#/.NET"
+    ],
+    "team": "Backend",
+    "installs": 1867,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "github__awesome-copilot__github-actions-efficiency",
+    "name": "github-actions-efficiency",
+    "type": "skill",
+    "source": "github/awesome-copilot",
+    "url": "https://skills.sh/github/awesome-copilot/github-actions-efficiency",
+    "install": "npx skills add github/awesome-copilot@github-actions-efficiency",
+    "description": "Audit GitHub Actions workflow efficiency and recommend fixes to reduce CI minutes and costs.",
+    "purpose": "devops",
+    "technologies": [
+      "Git/GitHub"
+    ],
+    "team": "DevOps",
+    "installs": 1636,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "mblode__agent-skills__agent-skills-creator",
+    "name": "agent-skills-creator",
+    "type": "skill",
+    "source": "mblode/agent-skills",
+    "url": "https://skills.sh/mblode/agent-skills/agent-skills-creator",
+    "install": "npx skills add mblode/agent-skills@agent-skills-creator",
+    "description": "Creates and improves portable Agent Skills with a validator, routing scenarios, and evidence-based keep, cut, merge, or retire decisions. Use when asked to \"write a skill\", \"update all skills\", \"audit my SKILL.md\", \"remove redundant instructions\", or fix skill triggering. For AGENTS.md or CLAUDE.md use agents-md.",
+    "purpose": "agentes-ia",
+    "technologies": [],
+    "team": "Dados & IA",
+    "installs": 830,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "asyrafhussin__agent-skills__e2e-playwright-testing",
+    "name": "e2e-playwright-testing",
+    "type": "skill",
+    "source": "asyrafhussin/agent-skills",
+    "url": "https://skills.sh/asyrafhussin/agent-skills/e2e-playwright-testing",
+    "install": "npx skills add asyrafhussin/agent-skills@e2e-playwright-testing",
+    "description": "End-to-end testing with Playwright for web applications. Use when writing E2E tests, browser automation, form submission testing, or user flow testing. Triggers on \"playwright\", \"e2e test\", \"browser test\", \"end-to-end\", \"form flow testing\", or test files in tests/e2e/.",
+    "purpose": "testes",
+    "technologies": [],
+    "team": "Qualidade",
+    "installs": 660,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "dotnet__skills__csharp-refactoring",
+    "name": "csharp-refactoring",
+    "type": "skill",
+    "source": "dotnet/skills",
+    "url": "https://skills.sh/dotnet/skills/csharp-refactoring",
+    "install": "npx skills add dotnet/skills@csharp-refactoring",
+    "description": "Performs safe, behavior-preserving refactoring of C#/.NET code, verified with build, tests, and analyzers. USE FOR: rename or move a symbol/type/file; extract a method/type/interface; inline a wrapper/method/local; merge or consolidate near-identical classes or duplicate helpers; split or modernize C# code; generated/partial declarations; public, serialized, friend-assembly, or multi-targeted contracts; and mixed requests where a feature, bug fix, package/framework upgrade, public nullability change, or other behavior/contract change is presented as a refactor and must be separated or declined. DO NOT USE FOR: ordinary feature or bug-fix requests not framed as refactoring; upgrades after reclassification (use dotnet-upgrade); new tests; or formatting-only passes (use dotnet format).",
+    "purpose": "arquitetura",
+    "technologies": [
+      "C#/.NET"
+    ],
+    "team": "Plataforma",
+    "installs": 527,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "novotnyllc__dotnet-artisan__dotnet-csharp",
+    "name": "dotnet-csharp",
+    "type": "skill",
+    "source": "novotnyllc/dotnet-artisan",
+    "url": "https://skills.sh/novotnyllc/dotnet-artisan/dotnet-csharp",
+    "install": "npx skills add novotnyllc/dotnet-artisan@dotnet-csharp",
+    "description": "Baseline C# skill loaded for every .NET code path. Guides language patterns (records, pattern matching, primary constructors, C# 8-15), coding standards, async/await, DI, LINQ, serialization, domain modeling, concurrency, Roslyn analyzers, globalization, native interop (P/Invoke, LibraryImport, ComWrappers), WASM interop (JSImport/JSExport), and type design. Spans 25 topics. Do not use for ASP.NET endpoint architecture, UI framework patterns, or CI/CD guidance.",
+    "purpose": "backend",
+    "technologies": [
+      "C#/.NET"
+    ],
+    "team": "Backend",
+    "installs": 425,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshaddix__dotnet-skills__dotnet-csharp-modern-patterns",
+    "name": "dotnet-csharp-modern-patterns",
+    "type": "skill",
+    "source": "wshaddix/dotnet-skills",
+    "url": "https://skills.sh/wshaddix/dotnet-skills/dotnet-csharp-modern-patterns",
+    "install": "npx skills add wshaddix/dotnet-skills@dotnet-csharp-modern-patterns",
+    "description": "Using records, pattern matching, primary constructors, collection expressions. C# 12-15 by TFM.",
+    "purpose": "backend",
+    "technologies": [
+      "C#/.NET"
+    ],
+    "team": "Backend",
+    "installs": 182,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "wshaddix__dotnet-skills__dotnet-csharp-code-smells",
+    "name": "dotnet-csharp-code-smells",
+    "type": "skill",
+    "source": "wshaddix/dotnet-skills",
+    "url": "https://skills.sh/wshaddix/dotnet-skills/dotnet-csharp-code-smells",
+    "install": "npx skills add wshaddix/dotnet-skills@dotnet-csharp-code-smells",
+    "description": "Reviewing C# for logic issues. Anti-patterns, common pitfalls, async misuse, DI mistakes.",
+    "purpose": "backend",
+    "technologies": [
+      "C#/.NET"
+    ],
+    "team": "Backend",
+    "installs": 161,
+    "origin": "skills.sh"
+  },
+  {
+    "id": "interno__aurora-context-mcp",
+    "name": "aurora-context",
+    "type": "mcp",
+    "source": "interno",
+    "url": "",
+    "install": "claude mcp add aurora-context <url-interna>",
+    "description": "MCP server that helps developers find and consume Aurora Cloud microservice endpoints: semantic search over OpenAPI specs, generated service docs, symbol lookup, callers/callees and impact analysis across services.",
+    "purpose": "backend",
+    "technologies": [
+      "Aurora Cloud"
+    ],
+    "team": "Plataforma",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__azure-devops-mcp",
+    "name": "azure-devops",
+    "type": "mcp",
+    "source": "microsoft/azure-devops-mcp",
+    "url": "https://github.com/microsoft/azure-devops-mcp",
+    "install": "claude mcp add ado -- npx -y @azure-devops/mcp <org>",
+    "description": "MCP server for Azure DevOps: query and update work items with WIQL, read sprint iterations and team capacity, backlog, comments, repositories, pull requests, pipelines and wiki search.",
+    "purpose": "gestao",
+    "technologies": [
+      "Cloud/Azure",
+      "Git/GitHub"
+    ],
+    "team": "DevOps",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__m365-mcp",
+    "name": "microsoft-365",
+    "type": "mcp",
+    "source": "interno",
+    "url": "",
+    "install": "Conector gerenciado pelo time de Plataforma",
+    "description": "MCP connector for Microsoft 365: search Outlook email and calendar, Teams chats and channels, SharePoint documents, people lookup and meeting availability.",
+    "purpose": "produtividade",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__n8n-skills-plugin",
+    "name": "n8n-skills",
+    "type": "plugin",
+    "source": "n8n-io/n8n-skills",
+    "url": "",
+    "install": "/plugin install n8n-skills",
+    "description": "Claude Code plugin with skills and hooks for building n8n workflows: node configuration, expressions, code nodes, AI agents, credentials, error handling, loops, sub-workflows and debugging of executions.",
+    "purpose": "agentes-ia",
+    "technologies": [
+      "TypeScript/JavaScript"
+    ],
+    "team": "Dados & IA",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__excalidraw-plugin",
+    "name": "excalidraw",
+    "type": "plugin",
+    "source": "interno",
+    "url": "",
+    "install": "/plugin install excalidraw",
+    "description": "Plugin that generates Excalidraw architecture diagrams from natural language or directly from a codebase: component diagrams, service maps and box-and-arrow system views.",
+    "purpose": "arquitetura",
+    "technologies": [],
+    "team": "Plataforma",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__engram-plugin",
+    "name": "engram",
+    "type": "plugin",
+    "source": "interno",
+    "url": "",
+    "install": "/plugin install engram",
+    "description": "Plugin that operates a team knowledge base in Obsidian: discovers the vault ontology, ingests documents and PDFs, captures notes, links them in a graph, audits broken links and answers questions citing source notes.",
+    "purpose": "documentacao",
+    "technologies": [],
+    "team": "Produto",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__skill-validator",
+    "name": "skill-validator",
+    "type": "plugin",
+    "source": "jev-demos/skill-validator",
+    "url": "",
+    "install": "uv tool install ./skill-validator",
+    "description": "CLI that validates Agent Skill folders before publishing to the catalog: frontmatter, structure, broken references and leaked secrets, plus semantic quality and risk scoring with the Jev decision model.",
+    "purpose": "seguranca",
+    "technologies": [
+      "Python"
+    ],
+    "team": "Dados & IA",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__aurora-bff-scaffold",
+    "name": "aurora-bff-scaffold",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@aurora-bff-scaffold",
+    "description": "Scaffolds a new Aurora Cloud backend service in C#/.NET following the platform conventions: domain, primitives, events, security resources and the generated REST endpoints. Use when creating a new microservice or BFF.",
+    "purpose": "backend",
+    "technologies": [
+      "Aurora Cloud",
+      "C#/.NET"
+    ],
+    "team": "Backend",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__aurora-code-review",
+    "name": "aurora-code-review",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@aurora-code-review",
+    "description": "Reviews pull requests of Aurora Cloud services against the platform checklist: tenant isolation, permission resources, event contracts, breaking API changes, logging of personal data (LGPD) and .NET conventions.",
+    "purpose": "code-review",
+    "technologies": [
+      "Aurora Cloud",
+      "C#/.NET",
+      "Git/GitHub"
+    ],
+    "team": "Plataforma",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__aurora-frontend-ds",
+    "name": "aurora-design-system",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@aurora-design-system",
+    "description": "Builds Aurora Cloud screens in React with the corporate design system: component catalog, tokens, forms, data grids, accessibility rules and i18n in pt-BR, en-US and es-ES.",
+    "purpose": "frontend",
+    "technologies": [
+      "Aurora Cloud",
+      "React",
+      "TypeScript/JavaScript",
+      "Web/CSS"
+    ],
+    "team": "Frontend",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__aurora-api-docs",
+    "name": "aurora-api-docs",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@aurora-api-docs",
+    "description": "Writes and updates public API documentation for Aurora Cloud services from the OpenAPI spec: endpoint guides, authentication, examples in cURL and C#, and changelog of breaking changes.",
+    "purpose": "documentacao",
+    "technologies": [
+      "Aurora Cloud",
+      "C#/.NET"
+    ],
+    "team": "Produto",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__aurora-integration-tests",
+    "name": "aurora-integration-tests",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@aurora-integration-tests",
+    "description": "Creates integration and contract tests for Aurora Cloud services in .NET: tenant fixtures, authenticated clients, event publishing assertions and test data cleanup in CI.",
+    "purpose": "testes",
+    "technologies": [
+      "Aurora Cloud",
+      "C#/.NET"
+    ],
+    "team": "Qualidade",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  },
+  {
+    "id": "interno__sprint-report",
+    "name": "sprint-report",
+    "type": "skill",
+    "source": "interno",
+    "url": "",
+    "install": "npx skills add aurora/ai-skills@sprint-report",
+    "description": "Generates the weekly sprint status report from Azure DevOps: scope, burndown, capacity vs remaining work per person and per stream, estimate factor, blockers found in comments and backlog hygiene issues, delivered as an HTML page.",
+    "purpose": "gestao",
+    "technologies": [
+      "Cloud/Azure"
+    ],
+    "team": "Produto",
+    "installs": 0,
+    "origin": "interno (exemplo)"
+  }
+]
