@@ -13,6 +13,7 @@ Os exemplos usam três tipos de pergunta: **Noul**, para uma probabilidade de si
 | [Story Sizer](story-sizer/README.md) | Sugestão de tamanho de User Stories do Azure DevOps, com distribuição de probabilidades e comparação com estimativas do time. | Web e CLI |
 | [Sprint Radar](sprint-radar/README.md) | Análise de risco de entrega das tasks de uma sprint do Azure DevOps, combinando cálculos de capacidade com julgamentos do Jev. | Web |
 | [Catalog AI](catalog-ai/README.md) | Busca de skills, MCPs e plugins enquanto a pessoa digita, com relevância por item e filtros inferidos pelo Jev. | Web |
+| [Sport Live](sport-live/README.md) | Loja esportiva que adapta a vitrine ao plano do cliente, com texto/voz e modo loja física. | Web |
 | [Brand Live](brand-live/README.md) | Comandos por voz ou texto que alteram uma marca fictícia a partir de peças prontas, com decisões aplicadas em tempo real. | Web |
 
 Cada demo é independente e tem sua própria configuração. Os detalhes, roteiros e limites estão nos READMEs de cada pasta.
@@ -92,6 +93,7 @@ Mantenha as demais configurações do `.env.example` de cada demo, incluindo o m
 | Story Sizer | `uv run story-sizer-web` | [http://127.0.0.1:8765](http://127.0.0.1:8765) |
 | Sprint Radar | `uv run sprint-radar` | [http://localhost:8766](http://localhost:8766) |
 | Catalog AI | `uv run catalog-ai` | [http://127.0.0.1:8770](http://127.0.0.1:8770) |
+| Sport Live | `uv run sport-live` | [http://127.0.0.1:8780](http://127.0.0.1:8780) |
 | Brand Live | `uv run brand-live` | [http://127.0.0.1:8775](http://127.0.0.1:8775) |
 
 Story Sizer e Sprint Radar também exigem `ADO_ORG`, `ADO_PROJECT`, `ADO_TEAM` e `AZURE_DEVOPS_PAT`. No Story Sizer, a gravação do tamanho no ADO fica desligada por padrão (`ALLOW_WRITE=false`); consulte seu README para habilitá-la.

@@ -1,0 +1,1205 @@
+[
+  {
+    "id": "p01",
+    "name": "Jaqueta térmica Andes",
+    "description": "Proteção térmica para viagens no inverno.",
+    "scenes": [
+      "snow"
+    ],
+    "price": 399.9,
+    "image": "/static/images/p01.svg",
+    "benefit": "camada térmica",
+    "exclude_words": [
+      "jaqueta"
+    ],
+    "surface": "all",
+    "stock": 3,
+    "aisle": "01",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p02",
+    "name": "Fleece Explorer",
+    "description": "Camada intermediária para frio e trilhas.",
+    "scenes": [
+      "snow",
+      "hiking"
+    ],
+    "price": 179.9,
+    "image": "/static/images/p02.svg",
+    "benefit": "conforto térmico",
+    "exclude_words": [
+      "fleece"
+    ],
+    "surface": "all",
+    "stock": 4,
+    "aisle": "01",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p03",
+    "name": "Bota Trek impermeável",
+    "description": "Solado aderente e proteção contra água para trilhas.",
+    "scenes": [
+      "hiking",
+      "snow"
+    ],
+    "price": 349.9,
+    "image": "/static/images/p03.svg",
+    "benefit": "aderência em trilhas",
+    "exclude_words": [
+      "bota"
+    ],
+    "surface": "all",
+    "stock": 5,
+    "aisle": "01",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p04",
+    "name": "Mochila Day Trip 20L",
+    "description": "Bagagem leve para passeios urbanos e trilhas de um dia.",
+    "scenes": [
+      "travel",
+      "hiking"
+    ],
+    "price": 129.9,
+    "image": "/static/images/p04.svg",
+    "benefit": "20 litros para o dia",
+    "exclude_words": [
+      "mochila"
+    ],
+    "surface": "all",
+    "stock": 6,
+    "aisle": "01",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p05",
+    "name": "Garrafa Trail 750ml",
+    "description": "Hidratação portátil para passeios e esporte.",
+    "scenes": [
+      "travel",
+      "hiking",
+      "football",
+      "running",
+      "fitness"
+    ],
+    "price": 49.9,
+    "image": "/static/images/p05.svg",
+    "benefit": "hidratação por perto",
+    "exclude_words": [
+      "garrafa"
+    ],
+    "surface": "all",
+    "stock": 7,
+    "aisle": "01",
+    "rating": 4.9,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p06",
+    "name": "Organizadores de mala",
+    "description": "Três bolsas compactas para organizar roupas na viagem.",
+    "scenes": [
+      "travel"
+    ],
+    "price": 59.9,
+    "image": "/static/images/p06.svg",
+    "benefit": "mala organizada",
+    "exclude_words": [
+      "organizador"
+    ],
+    "surface": "all",
+    "stock": 8,
+    "aisle": "01",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p07",
+    "name": "Segunda pele Alpine",
+    "description": "Camada base para frio, neve e esportes de inverno.",
+    "scenes": [
+      "snow"
+    ],
+    "price": 119.9,
+    "image": "/static/images/p07.svg",
+    "benefit": "primeira camada",
+    "exclude_words": [
+      "segunda pele"
+    ],
+    "surface": "all",
+    "stock": 9,
+    "aisle": "02",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p08",
+    "name": "Gorro + luvas Winter",
+    "description": "Acessórios para proteção em passeios no frio.",
+    "scenes": [
+      "snow"
+    ],
+    "price": 89.9,
+    "image": "/static/images/p08.svg",
+    "benefit": "proteção para o frio",
+    "exclude_words": [
+      "luva"
+    ],
+    "surface": "all",
+    "stock": 10,
+    "aisle": "02",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p09",
+    "name": "Chuteira Society Control",
+    "description": "Solado de travas baixas para grama sintética.",
+    "scenes": [
+      "football"
+    ],
+    "price": 229.9,
+    "image": "/static/images/p09.svg",
+    "benefit": "grama sintética",
+    "exclude_words": [
+      "chuteira"
+    ],
+    "surface": "society",
+    "stock": 3,
+    "aisle": "02",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p10",
+    "name": "Chuteira Campo Attack",
+    "description": "Travas para futebol em gramado natural.",
+    "scenes": [
+      "football"
+    ],
+    "price": 249.9,
+    "image": "/static/images/p10.svg",
+    "benefit": "gramado natural",
+    "exclude_words": [
+      "chuteira"
+    ],
+    "surface": "campo",
+    "stock": 0,
+    "aisle": "02",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p11",
+    "name": "Tênis Futsal Court",
+    "description": "Solado plano para jogar em quadra.",
+    "scenes": [
+      "football"
+    ],
+    "price": 199.9,
+    "image": "/static/images/p11.svg",
+    "benefit": "quadra e futsal",
+    "exclude_words": [
+      "tenis"
+    ],
+    "surface": "futsal",
+    "stock": 5,
+    "aisle": "02",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p12",
+    "name": "Bola Match tamanho 5",
+    "description": "Bola para partidas de futebol de campo e society.",
+    "scenes": [
+      "football"
+    ],
+    "price": 89.9,
+    "image": "/static/images/p12.svg",
+    "benefit": "pronta para o jogo",
+    "exclude_words": [
+      "bola"
+    ],
+    "surface": "all",
+    "stock": 6,
+    "aisle": "02",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p13",
+    "name": "Caneleira Protect",
+    "description": "Proteção para jogar futebol em todas as superfícies.",
+    "scenes": [
+      "football"
+    ],
+    "price": 39.9,
+    "image": "/static/images/p13.svg",
+    "benefit": "proteção em campo",
+    "exclude_words": [
+      "caneleira"
+    ],
+    "surface": "all",
+    "stock": 7,
+    "aisle": "03",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p14",
+    "name": "Camiseta Dry Move",
+    "description": "Tecido leve de secagem rápida para atividade física.",
+    "scenes": [
+      "football",
+      "running",
+      "fitness",
+      "hiking"
+    ],
+    "price": 69.9,
+    "image": "/static/images/p14.svg",
+    "benefit": "secagem rápida",
+    "exclude_words": [
+      "camiseta"
+    ],
+    "surface": "all",
+    "stock": 8,
+    "aisle": "03",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p15",
+    "name": "Tênis Run Start",
+    "description": "Amortecimento para começar a correr e caminhar.",
+    "scenes": [
+      "running"
+    ],
+    "price": 249.9,
+    "image": "/static/images/p15.svg",
+    "benefit": "seus primeiros quilômetros",
+    "exclude_words": [
+      "tenis"
+    ],
+    "surface": "all",
+    "stock": 9,
+    "aisle": "03",
+    "rating": 4.9,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p16",
+    "name": "Shorts Pace",
+    "description": "Leveza e liberdade de movimento na corrida.",
+    "scenes": [
+      "running",
+      "fitness",
+      "football"
+    ],
+    "price": 79.9,
+    "image": "/static/images/p16.svg",
+    "benefit": "movimento livre",
+    "exclude_words": [
+      "short"
+    ],
+    "surface": "all",
+    "stock": 10,
+    "aisle": "03",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p17",
+    "name": "Tapete Yoga Flow",
+    "description": "Superfície aderente para yoga e treino em casa.",
+    "scenes": [
+      "fitness"
+    ],
+    "price": 99.9,
+    "image": "/static/images/p17.svg",
+    "benefit": "apoio para o treino",
+    "exclude_words": [
+      "tapete"
+    ],
+    "surface": "all",
+    "stock": 3,
+    "aisle": "03",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p18",
+    "name": "Kit elásticos Strength",
+    "description": "Três intensidades para treino de força.",
+    "scenes": [
+      "fitness"
+    ],
+    "price": 69.9,
+    "image": "/static/images/p18.svg",
+    "benefit": "treino em qualquer lugar",
+    "exclude_words": [
+      "elastico"
+    ],
+    "surface": "all",
+    "stock": 4,
+    "aisle": "03",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p19",
+    "name": "Óculos Swim Clear",
+    "description": "Visão e vedação para natação em piscina.",
+    "scenes": [
+      "swimming"
+    ],
+    "price": 79.9,
+    "image": "/static/images/p19.svg",
+    "benefit": "visão na piscina",
+    "exclude_words": [
+      "oculos"
+    ],
+    "surface": "all",
+    "stock": 5,
+    "aisle": "04",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p20",
+    "name": "Touca Swim Silicone",
+    "description": "Touca de silicone para treinos de natação.",
+    "scenes": [
+      "swimming"
+    ],
+    "price": 29.9,
+    "image": "/static/images/p20.svg",
+    "benefit": "treino na piscina",
+    "exclude_words": [
+      "touca"
+    ],
+    "surface": "all",
+    "stock": 6,
+    "aisle": "04",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p21",
+    "name": "Toalha Compact",
+    "description": "Toalha de secagem rápida para viagem e piscina.",
+    "scenes": [
+      "travel",
+      "swimming",
+      "fitness"
+    ],
+    "price": 59.9,
+    "image": "/static/images/p21.svg",
+    "benefit": "leve na bagagem",
+    "exclude_words": [
+      "toalha"
+    ],
+    "surface": "all",
+    "stock": 7,
+    "aisle": "04",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p22",
+    "name": "Meias Trek Comfort",
+    "description": "Conforto para caminhadas longas e trilhas.",
+    "scenes": [
+      "hiking",
+      "snow"
+    ],
+    "price": 39.9,
+    "image": "/static/images/p22.svg",
+    "benefit": "conforto ao caminhar",
+    "exclude_words": [
+      "meia"
+    ],
+    "surface": "all",
+    "stock": 8,
+    "aisle": "04",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p23",
+    "name": "Boné Run UV",
+    "description": "Boné leve para atividades ao ar livre.",
+    "scenes": [
+      "running",
+      "hiking",
+      "travel"
+    ],
+    "price": 49.9,
+    "image": "/static/images/p23.svg",
+    "benefit": "sombra no percurso",
+    "exclude_words": [
+      "bone"
+    ],
+    "surface": "all",
+    "stock": 9,
+    "aisle": "04",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p24",
+    "name": "Barraca Camp Duo",
+    "description": "Abrigo para duas pessoas em acampamentos.",
+    "scenes": [
+      "hiking"
+    ],
+    "price": 499.9,
+    "image": "/static/images/p24.svg",
+    "benefit": "aventura a dois",
+    "exclude_words": [
+      "barraca"
+    ],
+    "surface": "all",
+    "stock": 10,
+    "aisle": "04",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p25",
+    "name": "Esteira elétrica Run Home",
+    "description": "Caminhada e corrida em casa com velocidade ajustável.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 3999.9,
+    "image": "/static/images/p25.svg",
+    "benefit": "cardio em casa",
+    "exclude_words": [
+      "esteira"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 6,
+    "aisle": "05",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p26",
+    "name": "Bicicleta de spinning Ride",
+    "description": "Bicicleta estacionária com resistência ajustável para treino indoor.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 1899.9,
+    "image": "/static/images/p26.svg",
+    "benefit": "pedale no seu ritmo",
+    "exclude_words": [
+      "bicicleta"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 7,
+    "aisle": "05",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p27",
+    "name": "Bicicleta ergométrica Comfort",
+    "description": "Bicicleta ergométrica para condicionamento em casa.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 1299.9,
+    "image": "/static/images/p27.svg",
+    "benefit": "condicionamento indoor",
+    "exclude_words": [
+      "bicicleta"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 8,
+    "aisle": "05",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p28",
+    "name": "Elíptico Motion",
+    "description": "Aparelho elíptico para treino cardiovascular.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 2499.9,
+    "image": "/static/images/p28.svg",
+    "benefit": "movimento contínuo",
+    "exclude_words": [
+      "eliptico"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 2,
+    "aisle": "05",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p29",
+    "name": "Estação de musculação Home Pro",
+    "description": "Estação com polia e carga ajustável para exercícios de força.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 5999.9,
+    "image": "/static/images/p29.svg",
+    "benefit": "uma estação, vários exercícios",
+    "exclude_words": [
+      "estacao"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 3,
+    "aisle": "05",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p30",
+    "name": "Banco de musculação ajustável",
+    "description": "Banco com inclinação ajustável para exercícios com pesos.",
+    "scenes": [
+      "gym",
+      "fitness"
+    ],
+    "price": 699.9,
+    "image": "/static/images/p30.svg",
+    "benefit": "apoio para treinar força",
+    "exclude_words": [
+      "banco"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 4,
+    "aisle": "05",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p31",
+    "name": "Kit halteres ajustáveis 20kg",
+    "description": "Par de halteres com anilhas removíveis para treino de força.",
+    "scenes": [
+      "gym",
+      "fitness"
+    ],
+    "price": 499.9,
+    "image": "/static/images/p31.svg",
+    "benefit": "carga ajustável",
+    "exclude_words": [
+      "halter"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 5,
+    "aisle": "05",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p32",
+    "name": "Kettlebell Iron 12kg",
+    "description": "Peso de 12kg para exercícios funcionais e de força.",
+    "scenes": [
+      "gym",
+      "fitness"
+    ],
+    "price": 189.9,
+    "image": "/static/images/p32.svg",
+    "benefit": "força e movimento",
+    "exclude_words": [
+      "kettlebell"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 6,
+    "aisle": "05",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p33",
+    "name": "Barra olímpica 20kg",
+    "description": "Barra de 20kg para exercícios de levantamento com anilhas compatíveis.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 899.9,
+    "image": "/static/images/p33.svg",
+    "benefit": "base para seus levantamentos",
+    "exclude_words": [
+      "barra"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 7,
+    "aisle": "05",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p34",
+    "name": "Kit anilhas 30kg",
+    "description": "Conjunto de anilhas para barras compatíveis.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 649.9,
+    "image": "/static/images/p34.svg",
+    "benefit": "evolua sua carga",
+    "exclude_words": [
+      "anilha"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 8,
+    "aisle": "05",
+    "rating": 4.9,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p35",
+    "name": "Rack de agachamento",
+    "description": "Suporte regulável para barra em exercícios de força.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 1799.9,
+    "image": "/static/images/p35.svg",
+    "benefit": "organize seu treino com barra",
+    "exclude_words": [
+      "rack"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 2,
+    "aisle": "05",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p36",
+    "name": "Remo indoor Row",
+    "description": "Aparelho de remo estacionário para treino cardiovascular.",
+    "scenes": [
+      "gym"
+    ],
+    "price": 3499.9,
+    "image": "/static/images/p36.svg",
+    "benefit": "remada no treino indoor",
+    "exclude_words": [
+      "remo"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 3,
+    "aisle": "05",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p37",
+    "name": "Luva de boxe Strike 14oz",
+    "description": "Par de luvas para treino de boxe e muay thai.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 249.9,
+    "image": "/static/images/p37.svg",
+    "benefit": "treine seus golpes",
+    "exclude_words": [
+      "luva"
+    ],
+    "surface": "all",
+    "discipline": "boxing",
+    "stock": 4,
+    "aisle": "06",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p38",
+    "name": "Bandagem de boxe 4m",
+    "description": "Par de bandagens para as mãos em treinos de boxe e muay thai.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 39.9,
+    "image": "/static/images/p38.svg",
+    "benefit": "apoio para as mãos",
+    "exclude_words": [
+      "bandagem"
+    ],
+    "surface": "all",
+    "discipline": "boxing",
+    "stock": 5,
+    "aisle": "06",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p39",
+    "name": "Saco de pancada Heavy 100cm",
+    "description": "Saco para prática de golpes de boxe e muay thai, requer instalação adequada.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 399.9,
+    "image": "/static/images/p39.svg",
+    "benefit": "seu treino de golpes",
+    "exclude_words": [
+      "saco"
+    ],
+    "surface": "all",
+    "discipline": "boxing",
+    "stock": 6,
+    "aisle": "06",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p40",
+    "name": "Aparador de socos Focus",
+    "description": "Par de aparadores para treino de golpes com parceiro.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 169.9,
+    "image": "/static/images/p40.svg",
+    "benefit": "precisão no treino",
+    "exclude_words": [
+      "aparador"
+    ],
+    "surface": "all",
+    "discipline": "boxing",
+    "stock": 7,
+    "aisle": "06",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p41",
+    "name": "Caneleira Muay Thai Guard",
+    "description": "Par de caneleiras para treino de muay thai.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 199.9,
+    "image": "/static/images/p41.svg",
+    "benefit": "proteção para treinar",
+    "exclude_words": [
+      "caneleira"
+    ],
+    "surface": "all",
+    "discipline": "muay_thai",
+    "stock": 8,
+    "aisle": "06",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p42",
+    "name": "Protetor bucal Fight",
+    "description": "Protetor bucal para práticas de contato.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 39.9,
+    "image": "/static/images/p42.svg",
+    "benefit": "equipamento de proteção",
+    "exclude_words": [
+      "protetor"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 2,
+    "aisle": "06",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p43",
+    "name": "Kimono Jiu-Jitsu Ground",
+    "description": "Kimono para treino de jiu-jitsu.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 349.9,
+    "image": "/static/images/p43.svg",
+    "benefit": "pronto para o tatame",
+    "exclude_words": [
+      "kimono"
+    ],
+    "surface": "all",
+    "discipline": "jiu_jitsu",
+    "stock": 3,
+    "aisle": "06",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p44",
+    "name": "Rashguard Grappling",
+    "description": "Camiseta técnica ajustada para treino de grappling e jiu-jitsu.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 119.9,
+    "image": "/static/images/p44.svg",
+    "benefit": "movimento no tatame",
+    "exclude_words": [
+      "rashguard"
+    ],
+    "surface": "all",
+    "discipline": "jiu_jitsu",
+    "stock": 4,
+    "aisle": "06",
+    "rating": 4.9,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p45",
+    "name": "Kimono Judô Ippon",
+    "description": "Kimono próprio para treino de judô.",
+    "scenes": [
+      "combat"
+    ],
+    "price": 299.9,
+    "image": "/static/images/p45.svg",
+    "benefit": "seu próximo treino de judô",
+    "exclude_words": [
+      "kimono"
+    ],
+    "surface": "all",
+    "discipline": "judo",
+    "stock": 5,
+    "aisle": "06",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p46",
+    "name": "Corda de pular Speed",
+    "description": "Corda ajustável para aquecimento e treino de condicionamento.",
+    "scenes": [
+      "combat",
+      "fitness"
+    ],
+    "price": 49.9,
+    "image": "/static/images/p46.svg",
+    "benefit": "ritmo e coordenação",
+    "exclude_words": [
+      "corda"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 6,
+    "aisle": "06",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p47",
+    "name": "Tênis Run Performance",
+    "description": "Tênis de corrida para treinos frequentes em asfalto.",
+    "scenes": [
+      "running"
+    ],
+    "price": 449.9,
+    "image": "/static/images/p47.svg",
+    "benefit": "conforto no asfalto",
+    "exclude_words": [
+      "tenis"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 7,
+    "aisle": "07",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p48",
+    "name": "Tênis Trail Grip",
+    "description": "Tênis com solado aderente para corrida em trilhas.",
+    "scenes": [
+      "running",
+      "hiking"
+    ],
+    "price": 399.9,
+    "image": "/static/images/p48.svg",
+    "benefit": "aderência fora do asfalto",
+    "exclude_words": [
+      "tenis"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 8,
+    "aisle": "07",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p49",
+    "name": "Colete de hidratação 5L",
+    "description": "Colete com reservatório para água em corridas e trilhas.",
+    "scenes": [
+      "running",
+      "hiking"
+    ],
+    "price": 229.9,
+    "image": "/static/images/p49.svg",
+    "benefit": "água no percurso",
+    "exclude_words": [
+      "colete"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 2,
+    "aisle": "07",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p50",
+    "name": "Cinto de corrida Pocket",
+    "description": "Cinto com bolso para pequenos objetos durante a corrida.",
+    "scenes": [
+      "running"
+    ],
+    "price": 59.9,
+    "image": "/static/images/p50.svg",
+    "benefit": "essenciais sempre perto",
+    "exclude_words": [
+      "cinto"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 3,
+    "aisle": "07",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p51",
+    "name": "Meias de corrida Run",
+    "description": "Par de meias técnicas para treinos de corrida.",
+    "scenes": [
+      "running"
+    ],
+    "price": 39.9,
+    "image": "/static/images/p51.svg",
+    "benefit": "conforto a cada passo",
+    "exclude_words": [
+      "meia"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 4,
+    "aisle": "07",
+    "rating": 4.6,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p52",
+    "name": "Relógio GPS Pace",
+    "description": "Relógio esportivo para registrar distância, ritmo e tempo.",
+    "scenes": [
+      "running"
+    ],
+    "price": 899.9,
+    "image": "/static/images/p52.svg",
+    "benefit": "acompanhe seu ritmo",
+    "exclude_words": [
+      "relogio"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 5,
+    "aisle": "07",
+    "rating": 4.7,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p53",
+    "name": "Jaqueta corta-vento Run",
+    "description": "Jaqueta leve para correr em dias com vento.",
+    "scenes": [
+      "running"
+    ],
+    "price": 169.9,
+    "image": "/static/images/p53.svg",
+    "benefit": "camada leve para correr",
+    "exclude_words": [
+      "jaqueta"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 6,
+    "aisle": "07",
+    "rating": 4.8,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p54",
+    "name": "Top esportivo Support",
+    "description": "Top esportivo para atividades físicas e corrida.",
+    "scenes": [
+      "running",
+      "fitness"
+    ],
+    "price": 99.9,
+    "image": "/static/images/p54.svg",
+    "benefit": "suporte em movimento",
+    "exclude_words": [
+      "top"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 7,
+    "aisle": "07",
+    "rating": 4.9,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p55",
+    "name": "Legging Move",
+    "description": "Calça flexível para corrida e treino.",
+    "scenes": [
+      "running",
+      "fitness"
+    ],
+    "price": 129.9,
+    "image": "/static/images/p55.svg",
+    "benefit": "liberdade para treinar",
+    "exclude_words": [
+      "legging"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 8,
+    "aisle": "07",
+    "rating": 4.5,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p56",
+    "name": "Óculos esportivos Run",
+    "description": "Óculos esportivos para atividades ao ar livre.",
+    "scenes": [
+      "running",
+      "hiking"
+    ],
+    "price": 119.9,
+    "image": "/static/images/p56.svg",
+    "benefit": "conforto ao ar livre",
+    "exclude_words": [
+      "oculos"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 2,
+    "aisle": "07",
+    "rating": 4.6,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p57",
+    "name": "Luz de corrida Clip",
+    "description": "Luz com clip para aumentar a visibilidade em treinos com pouca luz.",
+    "scenes": [
+      "running"
+    ],
+    "price": 49.9,
+    "image": "/static/images/p57.svg",
+    "benefit": "visibilidade no percurso",
+    "exclude_words": [
+      "luz"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 3,
+    "aisle": "07",
+    "rating": 4.7,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p58",
+    "name": "Rolo de massagem Recovery",
+    "description": "Rolo para automassagem após a atividade física.",
+    "scenes": [
+      "running",
+      "fitness"
+    ],
+    "price": 89.9,
+    "image": "/static/images/p58.svg",
+    "benefit": "complete sua rotina",
+    "exclude_words": [
+      "rolo"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 4,
+    "aisle": "07",
+    "rating": 4.8,
+    "brand": "NÓRD"
+  },
+  {
+    "id": "p59",
+    "name": "Viseira Run Air",
+    "description": "Viseira leve para corrida ao ar livre.",
+    "scenes": [
+      "running"
+    ],
+    "price": 49.9,
+    "image": "/static/images/p59.svg",
+    "benefit": "leveza no percurso",
+    "exclude_words": [
+      "viseira"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 5,
+    "aisle": "07",
+    "rating": 4.9,
+    "brand": "ALTIS"
+  },
+  {
+    "id": "p60",
+    "name": "Manguito Run Sun",
+    "description": "Par de manguitos para usar durante treinos ao ar livre.",
+    "scenes": [
+      "running"
+    ],
+    "price": 59.9,
+    "image": "/static/images/p60.svg",
+    "benefit": "uma camada para os braços",
+    "exclude_words": [
+      "manguito"
+    ],
+    "surface": "all",
+    "discipline": "all",
+    "stock": 6,
+    "aisle": "07",
+    "rating": 4.5,
+    "brand": "NÓRD"
+  }
+]

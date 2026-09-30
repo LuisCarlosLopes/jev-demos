@@ -13,10 +13,10 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0, ValueFromRemainingArguments)]
-    [ValidateSet('story-sizer', 'sprint-radar', 'catalog-ai', 'brand-live')]
+    [ValidateSet('story-sizer', 'sprint-radar', 'catalog-ai', 'brand-live', 'sport-live')]
     [string[]] $Demo,
 
-    # Jev simulado (só catalog-ai e brand-live suportam; usam portas próprias).
+    # Jev simulado (catalog-ai, brand-live e sport-live; usam portas próprias).
     [switch] $Fake,
     [switch] $Open,
     [switch] $Stop,
@@ -35,6 +35,7 @@ $Demos = [ordered]@{
     'story-sizer'  = @{ Script = 'story-sizer-web'; Port = 8765; Args = @() }
     'sprint-radar' = @{ Script = 'sprint-radar';    Port = 8766; Args = @() }
     'catalog-ai'   = @{ Script = 'catalog-ai';      Port = 8770; FakePort = 8771; UsesEnvFile = $true }
+    'sport-live'   = @{ Script = 'sport-live';      Port = 8780; FakePort = 8781; UsesEnvFile = $true }
     'brand-live'   = @{ Script = 'brand-live';      Port = 8775; FakePort = 8776; UsesEnvFile = $true }
 }
 
