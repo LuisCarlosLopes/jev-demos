@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo colaborador · Aurora RH</title>
+  <link rel="stylesheet" href="/alvo/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <strong class="logo">Aurora RH</strong>
+    <nav aria-label="Principal">
+      <a href="/alvo/">Início</a>
+      <a href="/alvo/colaboradores" aria-current="page">Colaboradores</a>
+      <a href="/alvo/folha">Folha de pagamento</a>
+    </nav>
+    <a class="sair" href="/alvo/sair">Sair</a>
+  </header>
+
+  <main>
+    <p class="trilha">Colaboradores / Novo</p>
+    <h1>Novo colaborador</h1>
+    <p class="dica">Campos com * são obrigatórios.</p>
+
+    <div id="resumo" class="resumo" role="alert" hidden></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <form id="form" novalidate>
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <div class="grade">
+          <div class="campo largo">
+            <label for="nome">Nome completo *</label>
+            <input id="nome" name="nome" autocomplete="off">
+            <p class="erro" id="nome-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="cpf">CPF *</label>
+            <input id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric">
+            <p class="erro" id="cpf-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="nascimento">Data de nascimento *</label>
+            <input id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" inputmode="numeric">
+            <p class="erro" id="nascimento-erro"></p>
+          </div>
+          <div class="campo largo">
+            <label for="email">E-mail corporativo *</label>
+            <input id="email" name="email" autocomplete="off">
+            <p class="erro" id="email-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="celular">Celular</label>
+            <input id="celular" name="celular" placeholder="(00) 00000-0000" inputmode="tel">
+            <p class="erro" id="celular-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="cep">CEP</label>
+            <input id="cep" name="cep" placeholder="00000-000" inputmode="numeric">
+            <p class="erro" id="cep-erro"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contrato</legend>
+        <div class="grade">
+          <div class="campo">
+            <label for="admissao">Admissão *</label>
+            <input id="admissao" name="admissao" placeholder="dd/mm/aaaa" inputmode="numeric">
+            <p class="erro" id="admissao-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="cargo">Cargo *</label>
+            <select id="cargo" name="cargo">
+              <option value="">Selecione</option>
+              <option>Analista de RH</option>
+              <option>Desenvolvedor(a)</option>
+              <option>Coordenador(a) de vendas</option>
+              <option>Assistente administrativo</option>
+            </select>
+            <p class="erro" id="cargo-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="centro">Centro de custo *</label>
+            <select id="centro" name="centro">
+              <option value="">Selecione</option>
+              <option value="1010">1010 · Administrativo</option>
+              <option value="2020">2020 · Comercial</option>
+              <option value="3030">3030 · Tecnologia</option>
+            </select>
+            <p class="erro" id="centro-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="salario">Salário base (R$) *</label>
+            <input id="salario" name="salario" placeholder="0,00" inputmode="decimal">
+            <p class="erro" id="salario-erro"></p>
+          </div>
+          <div class="campo largo">
+            <label for="obs">Observações</label>
+            <textarea id="obs" name="obs" maxlength="200" rows="2"></textarea>
+            <p class="ajuda-campo">Até 200 caracteres.</p>
+          </div>
+          <div class="campo largo">
+            <label class="check"><input type="checkbox" id="convite" name="convite" checked>
+              Enviar convite de acesso ao portal do colaborador</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="acoes">
+        <button type="submit" class="primario">Salvar</button>
+        <button type="button" id="limpar">Limpar</button>
+        <a class="botao" href="/alvo/colaboradores">Cancelar</a>
+        <span class="espaco"></span>
+        <button type="button" id="ajuda" aria-haspopup="dialog">Ajuda</button>
+        <button type="button" id="aprovacao">Enviar para aprovação</button>
+        <button type="button" id="excluir" class="perigo">Excluir rascunho</button>
+      </div>
+    </form>
+  </main>
+
+  <dialog id="dlg-ajuda" aria-labelledby="dlg-titulo">
+    <h2 id="dlg-titulo">Como cadastrar</h2>
+    <p>Preencha os dados pessoais e do contrato. O CPF e o e-mail corporativo identificam o
+      colaborador nos demais módulos.</p>
+    <button type="button" id="fechar-ajuda">Fechar</button>
+  </dialog>
+
+  <script src="/alvo/colaborador.js"></script>
+</body>
+</html>

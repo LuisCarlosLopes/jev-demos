@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo fornecedor · Aurora ERP</title>
+  <link rel="stylesheet" href="/alvo/style.css">
+  <style>
+    [role=tablist] { display: flex; gap: 4px; border-bottom: 1px solid var(--borda); margin: 8px 0 12px; }
+    [role=tab] { border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: none; }
+    [role=tab][aria-selected=true] { border-bottom-color: var(--marca); font-weight: 600; }
+    [role=tab] .badge { background: var(--erro); color: #fff; border-radius: 9px; padding: 0 6px;
+      font-size: 11px; margin-left: 4px; }
+  </style>
+</head>
+<body>
+  <header class="topbar"><strong class="logo">Aurora ERP</strong>
+    <nav aria-label="Principal"><a href="/alvo/">Início</a></nav></header>
+  <main>
+    <h1>Novo fornecedor</h1>
+    <p class="dica">Campos com * são obrigatórios.</p>
+    <div id="resumo" class="resumo" role="alert" hidden></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <form id="form" novalidate>
+      <div role="tablist" aria-label="Seções do cadastro">
+        <button type="button" role="tab" id="t-gerais" aria-controls="p-gerais" aria-selected="true">Dados gerais</button>
+        <button type="button" role="tab" id="t-endereco" aria-controls="p-endereco" aria-selected="false">Endereço</button>
+        <button type="button" role="tab" id="t-financeiro" aria-controls="p-financeiro" aria-selected="false">Financeiro</button>
+      </div>
+      <section role="tabpanel" id="p-gerais" aria-labelledby="t-gerais">
+        <div class="grade">
+          <div class="campo largo"><label for="razao">Razão social *</label><input id="razao"><p class="erro" id="razao-erro"></p></div>
+          <div class="campo"><label for="cnpj">CNPJ *</label><input id="cnpj" placeholder="00.000.000/0000-00"><p class="erro" id="cnpj-erro"></p></div>
+          <div class="campo largo"><label for="email">E-mail para notas fiscais *</label><input id="email"><p class="erro" id="email-erro"></p></div>
+        </div>
+      </section>
+      <section role="tabpanel" id="p-endereco" aria-labelledby="t-endereco" hidden>
+        <div class="grade">
+          <div class="campo"><label for="cep">CEP *</label><input id="cep" placeholder="00000-000"><p class="erro" id="cep-erro"></p></div>
+          <div class="campo largo"><label for="logradouro">Logradouro *</label><input id="logradouro"><p class="erro" id="logradouro-erro"></p></div>
+          <div class="campo"><label for="numero">Número</label><input id="numero"><p class="erro" id="numero-erro"></p></div>
+        </div>
+      </section>
+      <section role="tabpanel" id="p-financeiro" aria-labelledby="t-financeiro" hidden>
+        <div class="grade">
+          <div class="campo"><label for="prazo">Prazo de pagamento (dias) *</label><input id="prazo" inputmode="numeric"><p class="erro" id="prazo-erro"></p></div>
+          <div class="campo"><label for="limite">Limite de crédito (R$)</label><input id="limite" placeholder="0,00"><p class="erro" id="limite-erro"></p></div>
+        </div>
+      </section>
+      <div class="acoes">
+        <button type="submit" class="primario">Salvar</button>
+        <a class="botao" href="/alvo/">Cancelar</a>
+      </div>
+    </form>
+  </main>
+  <script>
+    // Abas ARIA: só o painel ativo fica visível.
+    const tabs = [...document.querySelectorAll("[role=tab]")];
+    const show = (tab) => {
+      for (const t of tabs) {
+        t.setAttribute("aria-selected", String(t === tab));
+        document.getElementById(t.getAttribute("aria-controls")).hidden = t !== tab;
+      }
+    };
+    tabs.forEach((t) => t.addEventListener("click", () => show(t)));
+
+    const digits = (v) => v.replace(/\D/g, "");
+    function cnpjOk(v) {
+      const d = digits(v);
+      if (d.length !== 14 || /^(\d)\1+$/.test(d)) return false;
+      const calc = (len) => {
+        const w = len === 12 ? [5,4,3,2,9,8,7,6,5,4,3,2] : [6,5,4,3,2,9,8,7,6,5,4,3,2];
+        const r = w.reduce((s, x, i) => s + Number(d[i]) * x, 0) % 11;
+        return r < 2 ? 0 : 11 - r;
+      };
+      return calc(12) === Number(d[12]) && calc(13) === Number(d[13]);
+    }
+    const rules = {
+      razao: (v) => (v.trim() ? "" : "Informe a razão social."),
+      cnpj: (v) => (!v ? "Informe o CNPJ." : cnpjOk(v) ? "" : "CNPJ inválido."),
+      email: (v) => (!v.trim() ? "Informe o e-mail." : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "E-mail inválido."),
+      cep: (v) => (!v ? "Informe o CEP." : /^\d{5}-?\d{3}$/.test(v) ? "" : "CEP inválido."),
+      logradouro: (v) => (v.trim() ? "" : "Informe o logradouro."),
+      prazo: (v) => (!v ? "Informe o prazo." : /^\d+$/.test(v) ? "" : "Prazo deve ser um número de dias."),
+      // Defeito plantado: aceita limite negativo.
+      limite: (v) => (!v || /^-?[\d.]+(,\d{1,2})?$/.test(v) ? "" : "Valor inválido."),
+    };
+    document.getElementById("form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const toast = document.getElementById("toast");
+      const resumo = document.getElementById("resumo");
+      toast.textContent = "";
+      document.querySelectorAll(".badge").forEach((b) => b.remove());
+      const bad = {};
+      for (const [id, rule] of Object.entries(rules)) {
+        const input = document.getElementById(id);
+        const message = rule(input.value);
+        document.getElementById(`${id}-erro`).textContent = message;
+        if (message) {
+          input.setAttribute("aria-invalid", "true");
+          const tab = input.closest("[role=tabpanel]").getAttribute("aria-labelledby");
+          bad[tab] = (bad[tab] || 0) + 1;
+        } else input.removeAttribute("aria-invalid");
+      }
+      const total = Object.values(bad).reduce((a, b) => a + b, 0);
+      for (const [tab, n] of Object.entries(bad)) {
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = n;
+        document.getElementById(tab).append(badge);
+      }
+      resumo.hidden = !total;
+      resumo.textContent = total ? `Revise ${total === 1 ? "o campo destacado" : `os ${total} campos destacados`} nas abas marcadas.` : "";
+      if (total) return;
+      await fetch("/alvo/api/colaboradores", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+      toast.textContent = "Fornecedor cadastrado com sucesso.";
+    });
+  </script>
+</body>
+</html>

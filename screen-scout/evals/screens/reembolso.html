@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Reembolso · Aurora Despesas</title></head>
+<body>
+<main>
+  <h1>Nova solicitação de reembolso</h1>
+  <p>Preencha os dados da despesa. Itens obrigatórios estão marcados com <strong>*</strong>.</p>
+  <form>
+    <div><label for="data">Data da despesa *</label><input id="data" placeholder="dd/mm/aaaa"></div>
+    <div><label for="valor">Valor gasto *</label><input id="valor" placeholder="R$ 0,00"></div>
+    <div><label for="cat">Categoria *</label>
+      <select id="cat"><option value="">Escolha</option><option>Alimentação</option>
+        <option>Transporte</option><option>Hospedagem</option></select></div>
+    <div><label for="estab">CNPJ do estabelecimento</label><input id="estab"></div>
+    <div><label for="km">Quilometragem rodada</label><input id="km" inputmode="numeric"></div>
+    <div><label for="desc">Descrição da despesa *</label><textarea id="desc"></textarea></div>
+    <div><label for="comp">Comprovante</label><input id="comp" type="file"></div>
+    <div><label for="centro">Centro de custo</label><input id="centro" placeholder="Ex.: 3030"></div>
+    <button type="submit">Salvar</button>
+    <button type="button">Enviar para aprovação</button>
+    <a href="/reembolsos">Cancelar</a>
+    <button type="button">Excluir despesa</button>
+  </form>
+</main>
+</body></html>

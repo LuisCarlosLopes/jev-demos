@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Fornecedor · Aurora ERP</title></head>
+<body>
+<header><strong>Aurora ERP</strong>
+  <nav aria-label="Menu"><a href="/compras">Compras</a> <a href="/fornecedores">Fornecedores</a></nav>
+  <button type="button">Sair do sistema</button>
+</header>
+<main>
+  <h1>Fornecedor</h1>
+  <p>Os campos marcados como (obrigatório) precisam ser preenchidos para gravar.</p>
+  <form>
+    <fieldset><legend>Identificação</legend>
+      <label for="razao">Razão social (obrigatório)</label><input id="razao">
+      <label for="doc">Documento (obrigatório)</label><input id="doc" placeholder="00.000.000/0000-00">
+      <label for="ie">Inscrição estadual</label><input id="ie">
+      <label for="site">Site</label><input id="site" placeholder="www.">
+    </fieldset>
+    <fieldset><legend>Contato</legend>
+      <label for="nf">Endereço para envio das notas fiscais (obrigatório)</label>
+      <input id="nf" placeholder="nfe@fornecedor.com.br">
+      <label for="contato">Contato comercial</label><input id="contato" placeholder="(00) 0000-0000">
+      <label for="cep">Código postal</label><input id="cep" placeholder="00000-000">
+    </fieldset>
+    <fieldset><legend>Condições comerciais</legend>
+      <label for="limite">Limite (R$)</label><input id="limite" inputmode="decimal">
+      <label for="prazo">Prazo (dias) (obrigatório)</label><input id="prazo" inputmode="numeric">
+      <label for="desc">Desconto padrão (%)</label><input id="desc">
+      <label for="obs">Anotações internas</label><textarea id="obs"></textarea>
+    </fieldset>
+    <button type="submit">Gravar</button>
+    <button type="reset">Descartar alterações</button>
+    <button type="button">Voltar</button>
+    <button type="button" aria-haspopup="dialog">Histórico</button>
+    <button type="button">Exportar PDF</button>
+    <button type="button">Inativar fornecedor</button>
+  </form>
+</main>
+</body></html>

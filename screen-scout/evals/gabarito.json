@@ -1,0 +1,773 @@
+{
+  "_sobre": "Rótulos esperados por elemento, pelo nome capturado. kind/role/blame aceitam uma lista quando a tela é ambígua. risky: se a exploração deve evitar clicar (null = não avaliado). set: 'desenvolvimento' foi usado para ajustar perguntas e captura; 'validacao' foi escrito antes de rodar o Jev e não serviu para ajustes.",
+  "screens": [
+    {
+      "file": "fornecedor.html",
+      "screen_kind": [
+        "form_create",
+        "form_edit"
+      ],
+      "fields": {
+        "Razão social (obrigatório)": {
+          "kind": [
+            "other",
+            "free_text"
+          ],
+          "required": true
+        },
+        "Documento (obrigatório)": {
+          "kind": [
+            "cnpj"
+          ],
+          "required": true
+        },
+        "Inscrição estadual": {
+          "kind": [
+            "code"
+          ],
+          "required": false
+        },
+        "Site": {
+          "kind": [
+            "url"
+          ],
+          "required": false
+        },
+        "Endereço para envio das notas fiscais (obrigatório)": {
+          "kind": [
+            "email"
+          ],
+          "required": true
+        },
+        "Contato comercial": {
+          "kind": [
+            "phone"
+          ],
+          "required": false
+        },
+        "Código postal": {
+          "kind": [
+            "cep"
+          ],
+          "required": false
+        },
+        "Limite (R$)": {
+          "kind": [
+            "money"
+          ],
+          "required": false
+        },
+        "Prazo (dias) (obrigatório)": {
+          "kind": [
+            "quantity"
+          ],
+          "required": true
+        },
+        "Desconto padrão (%)": {
+          "kind": [
+            "percentage"
+          ],
+          "required": false
+        },
+        "Anotações internas": {
+          "kind": [
+            "free_text"
+          ],
+          "required": false
+        }
+      },
+      "actions": {
+        "Compras": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Fornecedores": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Sair do sistema": {
+          "role": [
+            "logout"
+          ],
+          "risky": true
+        },
+        "Gravar": {
+          "role": [
+            "submit_save"
+          ],
+          "risky": null
+        },
+        "Descartar alterações": {
+          "role": [
+            "clear",
+            "cancel_back"
+          ],
+          "risky": false
+        },
+        "Voltar": {
+          "role": [
+            "cancel_back"
+          ],
+          "risky": false
+        },
+        "Histórico": {
+          "role": [
+            "open_panel"
+          ],
+          "risky": false
+        },
+        "Exportar PDF": {
+          "role": [
+            "export"
+          ],
+          "risky": true
+        },
+        "Inativar fornecedor": {
+          "role": [
+            "delete"
+          ],
+          "risky": true
+        }
+      },
+      "set": "desenvolvimento"
+    },
+    {
+      "file": "ferias.html",
+      "screen_kind": [
+        "form_create"
+      ],
+      "fields": {
+        "Colaborador *": {
+          "kind": [
+            "person_name"
+          ],
+          "required": true
+        },
+        "Matrícula": {
+          "kind": [
+            "code"
+          ],
+          "required": false
+        },
+        "Início do período *": {
+          "kind": [
+            "date"
+          ],
+          "required": true
+        },
+        "Quantidade de dias *": {
+          "kind": [
+            "quantity"
+          ],
+          "required": true
+        },
+        "E-mail do gestor": {
+          "required": false
+        },
+        "Motivo": {
+          "kind": [
+            "free_text"
+          ],
+          "required": false
+        },
+        "Converter 1/3 em abono pecuniário": {
+          "required": false
+        },
+        "Li e concordo com a política de férias *": {
+          "required": true
+        }
+      },
+      "actions": {
+        "Início": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Minhas férias": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Enviar solicitação": {
+          "role": [
+            "submit_save",
+            "send"
+          ],
+          "risky": null
+        },
+        "Salvar rascunho": {
+          "role": [
+            "submit_save",
+            "other"
+          ],
+          "risky": false
+        },
+        "Cancelar": {
+          "role": [
+            "cancel_back",
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Excluir solicitação": {
+          "role": [
+            "delete"
+          ],
+          "risky": true
+        }
+      },
+      "set": "desenvolvimento"
+    },
+    {
+      "file": "login.html",
+      "screen_kind": [
+        "login"
+      ],
+      "fields": {
+        "E-mail ou CPF": {
+          "kind": [
+            "email",
+            "cpf"
+          ]
+        },
+        "Manter conectado": {
+          "required": false
+        }
+      },
+      "actions": {
+        "Entrar": {
+          "role": [
+            "submit_save"
+          ],
+          "risky": null
+        },
+        "Esqueci minha senha": {
+          "role": [
+            "open_panel",
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Criar conta": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Central de ajuda": {
+          "role": [
+            "navigate",
+            "open_panel"
+          ],
+          "risky": true
+        }
+      },
+      "set": "desenvolvimento"
+    },
+    {
+      "file": "titulos.html",
+      "screen_kind": [
+        "search_list"
+      ],
+      "fields": {
+        "Fornecedor": {
+          "kind": [
+            "search"
+          ],
+          "required": false
+        },
+        "Vencimento de": {
+          "kind": [
+            "date"
+          ],
+          "required": false
+        },
+        "até": {
+          "kind": [
+            "date"
+          ],
+          "required": false
+        },
+        "Valor a partir de": {
+          "kind": [
+            "money"
+          ],
+          "required": false
+        },
+        "Situação": {
+          "required": false
+        },
+        "Selecionar título 1": {
+          "required": false
+        }
+      },
+      "actions": {
+        "Financeiro": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Novo título": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Pesquisar": {
+          "role": [
+            "search_filter"
+          ],
+          "risky": false
+        },
+        "Limpar filtros": {
+          "role": [
+            "clear"
+          ],
+          "risky": false
+        },
+        "Pagar selecionados": {
+          "role": [
+            "send",
+            "other",
+            "submit_save"
+          ],
+          "risky": true
+        },
+        "Exportar planilha": {
+          "role": [
+            "export"
+          ],
+          "risky": true
+        },
+        "Excluir selecionados": {
+          "role": [
+            "delete"
+          ],
+          "risky": true
+        },
+        "Próxima página": {
+          "role": [
+            "navigate",
+            "search_filter",
+            "other"
+          ],
+          "risky": false
+        }
+      },
+      "set": "desenvolvimento"
+    },
+    {
+      "file": "reembolso.html",
+      "set": "validacao",
+      "screen_kind": [
+        "form_create"
+      ],
+      "fields": {
+        "Data da despesa *": {
+          "kind": [
+            "birth_date",
+            "date"
+          ],
+          "required": true
+        },
+        "Valor gasto *": {
+          "kind": [
+            "money"
+          ],
+          "required": true
+        },
+        "Categoria *": {
+          "required": true
+        },
+        "CNPJ do estabelecimento": {
+          "kind": [
+            "cnpj"
+          ],
+          "required": false
+        },
+        "Quilometragem rodada": {
+          "kind": [
+            "quantity"
+          ],
+          "required": false
+        },
+        "Descrição da despesa *": {
+          "kind": [
+            "free_text"
+          ],
+          "required": true
+        },
+        "Comprovante": {
+          "required": false
+        },
+        "Centro de custo": {
+          "kind": [
+            "code"
+          ],
+          "required": false
+        }
+      },
+      "actions": {
+        "Salvar": {
+          "role": [
+            "submit_save"
+          ],
+          "risky": null
+        },
+        "Enviar para aprovação": {
+          "role": [
+            "send"
+          ],
+          "risky": true
+        },
+        "Cancelar": {
+          "role": [
+            "cancel_back",
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Excluir despesa": {
+          "role": [
+            "delete"
+          ],
+          "risky": true
+        }
+      }
+    },
+    {
+      "file": "conta.html",
+      "set": "validacao",
+      "screen_kind": [
+        "settings",
+        "form_edit"
+      ],
+      "fields": {
+        "Nome de exibição": {
+          "kind": [
+            "person_name",
+            "other",
+            "free_text"
+          ],
+          "required": true
+        },
+        "E-mail de recuperação": {
+          "kind": [
+            "email"
+          ],
+          "required": false
+        },
+        "Número para SMS": {
+          "kind": [
+            "phone"
+          ],
+          "required": false
+        },
+        "Aniversário": {
+          "required": false
+        },
+        "Idioma": {
+          "required": false
+        },
+        "Receber novidades por e-mail": {
+          "required": false
+        }
+      },
+      "actions": {
+        "Painel": {
+          "role": [
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Ajuda": {
+          "role": [
+            "navigate",
+            "open_panel"
+          ],
+          "risky": false
+        },
+        "Sair": {
+          "role": [
+            "logout"
+          ],
+          "risky": true
+        },
+        "Salvar alterações": {
+          "role": [
+            "submit_save"
+          ],
+          "risky": null
+        },
+        "Alterar senha": {
+          "role": [
+            "open_panel",
+            "navigate"
+          ],
+          "risky": false
+        },
+        "Baixar meus dados": {
+          "role": [
+            "export"
+          ],
+          "risky": true
+        },
+        "Encerrar conta": {
+          "role": [
+            "delete",
+            "logout"
+          ],
+          "risky": true
+        }
+      }
+    }
+  ],
+  "oracle": [
+    {
+      "title": "Fornecedor",
+      "fields": [
+        "Razão social (obrigatório)",
+        "Documento (obrigatório)",
+        "Endereço para envio das notas fiscais (obrigatório)",
+        "Limite (R$)",
+        "Prazo (dias) (obrigatório)"
+      ],
+      "cases": [
+        {
+          "new_text": [
+            "Registro gravado."
+          ],
+          "outcome": [
+            "accepted"
+          ],
+          "blame": "none"
+        },
+        {
+          "new_text": [
+            "Não foi possível gravar: documento já cadastrado para outro fornecedor."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Documento (obrigatório)"
+        },
+        {
+          "new_text": [
+            "Ocorreu um erro inesperado. Tente novamente mais tarde. (código 500)"
+          ],
+          "outcome": [
+            "server_error"
+          ],
+          "blame": [
+            "general",
+            "none"
+          ]
+        },
+        {
+          "new_text": [],
+          "outcome": [
+            "no_feedback"
+          ],
+          "blame": "none"
+        },
+        {
+          "new_text": [
+            "Atenção",
+            "O prazo deve ser maior que zero."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Prazo (dias) (obrigatório)"
+        },
+        {
+          "new_text": [
+            "Fornecedor ACME Ltda",
+            "Dados salvos"
+          ],
+          "navigated_to": "/fornecedores/4821",
+          "outcome": [
+            "accepted"
+          ],
+          "blame": "none"
+        },
+        {
+          "new_text": [
+            "Salvo com ressalvas: o e-mail de notas fiscais ainda não foi confirmado."
+          ],
+          "outcome": [
+            "accepted"
+          ],
+          "blame": null
+        },
+        {
+          "new_text": [],
+          "fields_marked_invalid": [
+            "Endereço para envio das notas fiscais (obrigatório)"
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Endereço para envio das notas fiscais (obrigatório)"
+        },
+        {
+          "new_text": [
+            "Preencha os campos obrigatórios antes de gravar."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "general"
+        },
+        {
+          "new_text": [],
+          "http_errors": [
+            "HTTP 500 /api/fornecedores"
+          ],
+          "outcome": [
+            "server_error"
+          ],
+          "blame": [
+            "general",
+            "none"
+          ]
+        },
+        {
+          "new_text": [
+            "Fornecedor cadastrado com sucesso"
+          ],
+          "form_was_cleared": true,
+          "outcome": [
+            "accepted"
+          ],
+          "blame": "none"
+        },
+        {
+          "new_text": [
+            "Limite (R$): valor acima do permitido para o seu perfil."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Limite (R$)"
+        },
+        {
+          "new_text": [
+            "CNPJ inválido"
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Documento (obrigatório)"
+        },
+        {
+          "new_text": [
+            "Informe um número inteiro de dias."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Prazo (dias) (obrigatório)"
+        },
+        {
+          "new_text": [
+            "Sessão expirada. Entre novamente para continuar."
+          ],
+          "outcome": [
+            "server_error"
+          ],
+          "blame": [
+            "general",
+            "none"
+          ]
+        },
+        {
+          "new_text": [],
+          "browser_dialog": "Registro incluído com sucesso!",
+          "outcome": [
+            "accepted"
+          ],
+          "blame": "none"
+        }
+      ],
+      "set": "desenvolvimento"
+    },
+    {
+      "set": "validacao",
+      "title": "Nova solicitação de reembolso",
+      "fields": [
+        "Data da despesa *",
+        "Valor gasto *",
+        "CNPJ do estabelecimento",
+        "Descrição da despesa *"
+      ],
+      "cases": [
+        {
+          "new_text": [
+            "Despesa registrada. Aguardando envio para aprovação."
+          ],
+          "outcome": [
+            "accepted"
+          ],
+          "blame": "none"
+        },
+        {
+          "new_text": [
+            "A data da despesa não pode ser posterior a hoje."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Data da despesa *"
+        },
+        {
+          "new_text": [
+            "Valor acima do limite da política (R$ 500,00). Anexe uma justificativa."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Valor gasto *"
+        },
+        {
+          "new_text": [
+            "Serviço indisponível no momento."
+          ],
+          "outcome": [
+            "server_error"
+          ],
+          "blame": [
+            "general",
+            "none"
+          ]
+        },
+        {
+          "new_text": [],
+          "fields_marked_invalid": [
+            "Descrição da despesa *"
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "Descrição da despesa *"
+        },
+        {
+          "new_text": [
+            "Estabelecimento não encontrado na Receita Federal."
+          ],
+          "outcome": [
+            "rejected"
+          ],
+          "blame": "CNPJ do estabelecimento"
+        }
+      ]
+    }
+  ]
+}

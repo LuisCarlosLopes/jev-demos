@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Solicitar férias · Aurora RH</title></head>
+<body>
+<nav aria-label="Principal"><a href="/inicio">Início</a> <a href="/ferias">Minhas férias</a></nav>
+<main>
+  <h1>Solicitar férias</h1>
+  <p>Campos com * são obrigatórios. O pedido segue para aprovação do gestor.</p>
+  <form>
+    <label>Colaborador * <input name="colaborador"></label>
+    <label>Matrícula <input name="matricula" placeholder="000000"></label>
+    <label>Início do período * <input name="inicio" placeholder="dd/mm/aaaa"></label>
+    <label>Quantidade de dias * <input name="dias" inputmode="numeric"></label>
+    <label>E-mail do gestor <input name="gestor" type="email"></label>
+    <label>Motivo <textarea name="motivo" maxlength="300"></textarea></label>
+    <label><input type="checkbox" name="abono"> Converter 1/3 em abono pecuniário</label>
+    <label><input type="checkbox" name="termo"> Li e concordo com a política de férias *</label>
+    <button type="submit">Enviar solicitação</button>
+    <button type="button">Salvar rascunho</button>
+    <a href="/ferias">Cancelar</a>
+    <button type="button">Excluir solicitação</button>
+  </form>
+</main>
+</body></html>

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jev-screen-scout"
+version = "0.1.0"
+description = "Explora uma tela com Playwright, decide com o Jev e gera plano e testes sem LLM no laço."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "playwright>=1.59,<1.60",
+  "pytest>=8,<10",
+  "pytest-playwright>=0.6,<1",
+  "python-dotenv>=1.1,<2",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.12,<1"]
+
+[project.scripts]
+screen-scout = "screen_scout.app:main"
+screen-scout-cli = "screen_scout.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/screen_scout"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# Testes gerados pelas explorações não fazem parte do código do demo.
+extend-exclude = ["generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

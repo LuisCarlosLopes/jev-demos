@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+# Saída das explorações (plano, testes gerados, relatórios).
+generated/
+# Sessões salvas pelo login (cookies): nunca versionar.
+.auth/

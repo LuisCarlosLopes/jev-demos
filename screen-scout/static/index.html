@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screen Scout · Jev + Playwright</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="simulated" class="banner" hidden>
+    Modo simulado (<code>--fake</code>): heurística lexical local no lugar do Jev. Tempos, confianças
+    e acertos não representam o modelo.
+  </div>
+  <div id="unconfigured" class="banner warn" hidden>
+    Nenhuma API key configurada: preencha o <code>.env</code> ou rode com <code>--fake</code>.
+  </div>
+
+  <header class="top">
+    <div class="brand">
+      <h1>Screen Scout</h1>
+      <p>O Playwright explora a tela, o Jev decide o que cada elemento é e julga cada resposta da
+        tela, e o código gera o plano e os testes. Nenhum LLM no laço.</p>
+    </div>
+    <div class="badges" id="badges"></div>
+  </header>
+
+  <section class="controls">
+    <form id="explore-form" class="url-row">
+      <label class="sr-only" for="url">Endereço da tela</label>
+      <input id="url" type="url" required spellcheck="false" autocomplete="off"
+             placeholder="http://localhost:4200/cadastro">
+      <button id="explore" class="primary" type="submit">Explorar tela</button>
+    </form>
+    <div class="options">
+      <label class="check"><input id="allow-submit" type="checkbox" checked>
+        Permitir salvar o formulário nas sondagens</label>
+      <span id="submit-hint" class="hint"></span>
+      <a id="open-target" class="link" href="#" target="_blank" rel="noopener">abrir a tela-alvo ↗</a>
+      <span class="session">
+        <span id="session-state" class="hint"></span>
+        <button id="login" class="small" type="button"
+                title="Abre uma janela do navegador para você fazer o login; a sessão fica salva nesta máquina">Entrar…</button>
+        <button id="forget" class="link-button" type="button" hidden>esquecer sessão</button>
+      </span>
+      <details class="tuning">
+        <summary>Limiares</summary>
+        <label>Confiança mínima <output id="confidence-out">60%</output>
+          <input id="confidence" type="range" min="0.3" max="0.95" step="0.05" value="0.6"></label>
+        <label>Risco para não clicar <output id="risk-out">35%</output>
+          <input id="risk" type="range" min="0.1" max="0.9" step="0.05" value="0.35"></label>
+      </details>
+    </div>
+  </section>
+
+  <section class="pipeline" aria-label="Etapas da exploração">
+    <ol id="steps" class="steps"></ol>
+    <div class="probes-box">
+      <div class="probes-head">
+        <span>Sondagens em paralelo</span>
+        <span id="probe-count" class="muted">—</span>
+      </div>
+      <div id="probe-grid" class="probe-grid" aria-live="polite"></div>
+    </div>
+    <p id="error" class="error" role="alert" hidden></p>
+  </section>
+
+  <section id="summary" class="summary" hidden aria-label="Resumo"></section>
+
+  <section id="results" class="results" hidden>
+    <nav class="tabs" role="tablist" aria-label="Resultado">
+      <button role="tab" data-tab="screen" aria-selected="true">Tela</button>
+      <button role="tab" data-tab="findings">Achados <b id="findings-count"></b></button>
+      <button role="tab" data-tab="probes">Sondagens</button>
+      <button role="tab" data-tab="plan">Plano</button>
+      <button role="tab" data-tab="code">Código</button>
+      <button role="tab" data-tab="cost">Custo e tempo</button>
+    </nav>
+
+    <div class="tab" data-panel="screen">
+      <div class="screen-layout">
+        <figure class="shot">
+          <div id="shot-frame" class="shot-frame"></div>
+          <figcaption class="legend">
+            <span class="dot field"></span>campo <span class="dot action"></span>ação clicável
+            <span class="dot risky"></span>ação de risco (não clicada)
+            <span class="dot unsure"></span>revisar
+          </figcaption>
+        </figure>
+        <div class="elements">
+          <h3>O que o Jev decidiu</h3>
+          <p class="muted small">Tipo de dado e obrigatoriedade de cada campo, papel e risco de
+            cada ação. O que o HTML já diz não vira pergunta.</p>
+          <ol id="element-list" class="element-list"></ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab" data-panel="findings" hidden>
+      <div id="findings" class="findings"></div>
+    </div>
+
+    <div class="tab" data-panel="probes" hidden>
+      <p class="muted small">Cada sondagem abre uma página nova, preenche a massa válida trocando
+        um único valor, aciona a tela e registra o que mudou. O oráculo (Jev) julga todas numa
+        requisição só.</p>
+      <div class="table-wrap"><table id="probe-table" class="grid"></table></div>
+    </div>
+
+    <div class="tab" data-panel="plan" hidden>
+      <div class="tab-actions">
+        <span class="muted small">Formato do planner do Playwright (<code>specs/*.plan.md</code>):
+          dá para continuar com o generator/healer de agentes nos casos marcados para revisar.</span>
+        <a id="download-plan" class="button" href="#">Baixar plano.md</a>
+      </div>
+      <div id="plan" class="plan"></div>
+    </div>
+
+    <div class="tab" data-panel="code" hidden>
+      <div class="tab-actions">
+        <div class="segmented" role="group" aria-label="Linguagem">
+          <button data-lang="python" aria-pressed="true">Python · pytest</button>
+          <button data-lang="typescript" aria-pressed="false">TypeScript · @playwright/test</button>
+        </div>
+        <a id="download-code" class="button" href="#">Baixar</a>
+        <button id="run-tests" class="primary" type="button">Rodar testes Python</button>
+      </div>
+      <div id="run-result" class="run-result" hidden></div>
+      <pre id="code" class="code"></pre>
+    </div>
+
+    <div class="tab" data-panel="cost" hidden>
+      <div id="cost" class="cost"></div>
+    </div>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

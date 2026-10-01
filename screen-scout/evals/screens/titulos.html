@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Títulos a pagar · Aurora ERP</title></head>
+<body>
+<nav aria-label="Financeiro"><a href="/financeiro">Financeiro</a> <a href="/titulos/novo">Novo título</a></nav>
+<main>
+  <h1>Títulos a pagar</h1>
+  <form role="search" aria-label="Filtros">
+    <label for="forn">Fornecedor</label><input id="forn" placeholder="Nome ou código">
+    <label for="de">Vencimento de</label><input id="de" placeholder="dd/mm/aaaa">
+    <label for="ate">até</label><input id="ate" placeholder="dd/mm/aaaa">
+    <label for="valor">Valor a partir de</label><input id="valor" placeholder="0,00">
+    <label for="sit">Situação</label>
+    <select id="sit"><option value="">Todas</option><option>Em aberto</option><option>Paga</option></select>
+    <button type="submit">Pesquisar</button>
+    <button type="reset">Limpar filtros</button>
+  </form>
+  <table><thead><tr><th></th><th>Fornecedor</th><th>Vencimento</th><th>Valor</th></tr></thead>
+    <tbody><tr><td><input type="checkbox" aria-label="Selecionar título 1"></td><td>ACME Ltda</td>
+      <td>10/10/2026</td><td>R$ 1.250,00</td></tr></tbody></table>
+  <button type="button">Pagar selecionados</button>
+  <button type="button">Exportar planilha</button>
+  <button type="button">Excluir selecionados</button>
+  <button type="button">Próxima página</button>
+</main>
+</body></html>
