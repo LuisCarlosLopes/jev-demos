@@ -1,8 +1,20 @@
 Repositórios GitHub TypeSafe Jev.md
 
+# Variáveis de ambiente e segredos
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+.auth/
+
+# Execução, logs e temporários
+.run/
 .venv/
 __pycache__/
 .pytest_cache/
 .ruff_cache/
 .playwright-mcp/
+
+# Sistema Operacional
+.DS_Store
