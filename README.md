@@ -15,6 +15,7 @@ Os exemplos usam três tipos de pergunta: **Noul**, para uma probabilidade de si
 | [Catalog AI](catalog-ai/README.md) | Busca de skills, MCPs e plugins enquanto a pessoa digita, com relevância por item e filtros inferidos pelo Jev. | Web |
 | [Sport Live](sport-live/README.md) | Loja esportiva que adapta a vitrine ao plano do cliente, com texto/voz e modo loja física. | Web |
 | [Brand Live](brand-live/README.md) | Comandos por voz ou texto que alteram uma marca fictícia a partir de peças prontas, com decisões aplicadas em tempo real. | Web |
+| [Screen Scout](screen-scout/README.md) | Exploração de telas com Playwright, decisões semânticas via Jev e geração de planos e testes sem LLM no laço. | Web e CLI |
 
 Cada demo é independente e tem sua própria configuração. Os detalhes, roteiros e limites estão nos READMEs de cada pasta.
 
@@ -95,6 +96,7 @@ Mantenha as demais configurações do `.env.example` de cada demo, incluindo o m
 | Catalog AI | `uv run catalog-ai` | [http://127.0.0.1:8770](http://127.0.0.1:8770) |
 | Sport Live | `uv run sport-live` | [http://127.0.0.1:8780](http://127.0.0.1:8780) |
 | Brand Live | `uv run brand-live` | [http://127.0.0.1:8775](http://127.0.0.1:8775) |
+| Screen Scout | `uv run screen-scout` | [http://127.0.0.1:8785](http://127.0.0.1:8785) |
 
 Story Sizer e Sprint Radar também exigem `ADO_ORG`, `ADO_PROJECT`, `ADO_TEAM` e `AZURE_DEVOPS_PAT`. No Story Sizer, a gravação do tamanho no ADO fica desligada por padrão (`ALLOW_WRITE=false`); consulte seu README para habilitá-la.
 

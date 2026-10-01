@@ -5,7 +5,7 @@
 .EXAMPLE
     ./demos.ps1                          # sobe todos os demos web
     ./demos.ps1 catalog-ai brand-live    # sobe só esses
-    ./demos.ps1 -Fake                    # catalog-ai e brand-live com Jev simulado
+    ./demos.ps1 -Fake                    # demos com Jev simulado (catalog-ai, brand-live, etc.)
     ./demos.ps1 -Open                    # sobe e abre no navegador
     ./demos.ps1 -Status                  # mostra o que está no ar
     ./demos.ps1 -Stop                    # derruba tudo que o script subiu
@@ -13,10 +13,10 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0, ValueFromRemainingArguments)]
-    [ValidateSet('story-sizer', 'sprint-radar', 'catalog-ai', 'brand-live', 'sport-live')]
+    [ValidateSet('story-sizer', 'sprint-radar', 'catalog-ai', 'brand-live', 'sport-live', 'screen-scout')]
     [string[]] $Demo,
 
-    # Jev simulado (catalog-ai, brand-live e sport-live; usam portas próprias).
+    # Jev simulado (catalog-ai, brand-live, sport-live e screen-scout; usam portas próprias).
     [switch] $Fake,
     [switch] $Open,
     [switch] $Stop,
@@ -37,6 +37,7 @@ $Demos = [ordered]@{
     'catalog-ai'   = @{ Script = 'catalog-ai';      Port = 8770; FakePort = 8771; UsesEnvFile = $true }
     'sport-live'   = @{ Script = 'sport-live';      Port = 8780; FakePort = 8781; UsesEnvFile = $true }
     'brand-live'   = @{ Script = 'brand-live';      Port = 8775; FakePort = 8776; UsesEnvFile = $true }
+    'screen-scout' = @{ Script = 'screen-scout';    Port = 8785; FakePort = 8786; UsesEnvFile = $true }
 }
 
 function Test-Port([int] $Port) {
@@ -82,8 +83,14 @@ function Stop-Demos {
     $keep = @()
     foreach ($entry in $entries) {
         if ($selected -notcontains $entry.Name) { $keep += $entry; continue }
-        # /T derruba a árvore (uv -> python/uvicorn).
-        & taskkill.exe /PID $entry.Pid /T /F 2>$null | Out-Null
+        # /T derruba a árvore (uv -> python/uvicorn) no Windows; pkill/kill no Unix/macOS.
+        if (Get-Command taskkill.exe -ErrorAction SilentlyContinue) {
+            & taskkill.exe /PID $entry.Pid /T /F 2>$null | Out-Null
+        }
+        else {
+            & pkill -P $entry.Pid 2>$null
+            & kill -9 $entry.Pid 2>$null
+        }
         Write-Host "parado  $($entry.Name) (porta $($entry.Port))"
     }
     if ($keep.Count) { Write-Pids $keep } elseif (Test-Path $PidFile) { Remove-Item $PidFile }
